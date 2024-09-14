@@ -25,7 +25,7 @@ const Portfolio = () => {
     <div className="relative w-full max-w-6xl mx-auto overflow-hidden">
       {/* Heading */}
       <div className="relative text-center mb-8">
-        <h2 className="font-raleway text-[41.89px] font-extrabold leading-[49.18px]">
+        <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px]">
           PORTFOLIO
         </h2>
 
@@ -34,7 +34,7 @@ const Portfolio = () => {
       </div>
 
       {/* Image Slider */}
-      <div className="flex items-center justify-center relative">
+      <div className="pt-20 flex items-center justify-center relative">
         {/* Previous Arrow */}
         <button
           onClick={prevSlide}
@@ -72,7 +72,7 @@ const Portfolio = () => {
             <img
               src={images[currentIndex]}
               alt="Current Slide"
-              className="w-80 h-80 object-cover rounded-lg shadow-lg transform scale-110"
+              className="md:w-80 md:h-80 object-cover rounded-lg shadow-lg transform scale-110"
             />
           </div>
 
@@ -107,6 +107,109 @@ const Portfolio = () => {
           </svg>
         </button>
       </div>
+
+
+      <div className="relative text-center pt-20 mb-6">
+        <h2 className="font-raleway lg:text-[41.89px] font-extrabold lg:leading-[49.18px]">
+          WEDDING
+        </h2>
+        <div className="w-[159px] mx-auto mt-2 border-t-2 border-[#FCFC04]"></div>
+      </div>
+
+      <div className="px-4 lg:px-8 py-12">
+        {/* Center the grid container */}
+        <div className="flex justify-center">
+          <div className="grid lg:grid-cols-2 gap-4">
+            {/* Large Images in the First Column */}
+            <div className="relative">
+              <img
+                src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                alt="Large Image"
+                className="w-full h-auto object-cover"
+                style={{ width: '652px', height: '366px' }}
+              />
+              <img
+                src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                alt="Large Image"
+                className="w-full h-auto pt-6 object-cover"
+                style={{ width: '652px', height: '565px' }}
+              />
+            </div>
+
+            {/* Small Images in the Second Column */}
+            <div className="flex flex-col gap-4">
+              <div className="relative">
+                <img
+                  src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                  alt="Small Image 1"
+                  className="w-full h-auto object-cover"
+                  style={{ width: '442px', height: '442px' }}
+                />
+              </div>
+              <div className="relative">
+                <img
+                  src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                  alt="Small Image 2"
+                  className="w-full h-auto object-cover"
+                  style={{ width: '442px', height: '479px' }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="relative text-center pt-20 mb-6">
+        <h2 className="font-raleway lg:text-[41.89px] font-extrabold lg:leading-[49.18px]">
+          FASHION
+        </h2>
+        <div className="w-[159px] mx-auto mt-2 border-t-2 border-[#FCFC04]"></div>
+      </div>
+
+      <div className="px-4 lg:px-8 py-12">
+        {/* Center the grid container */}
+        <div className="flex justify-center">
+          <div className="grid lg:grid-cols-2 gap-4">
+            {/* Large Images in the First Column */}
+            <div className="relative">
+              <img
+                src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                alt="Large Image"
+                className="w-full h-auto object-cover"
+                style={{ width: '652px', height: '366px' }}
+              />
+              <img
+                src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                alt="Large Image"
+                className="w-full h-auto pt-6 object-cover"
+                style={{ width: '652px', height: '565px' }}
+              />
+            </div>
+
+            {/* Small Images in the Second Column */}
+            <div className="flex flex-col gap-4">
+              <div className="relative">
+                <img
+                  src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                  alt="Small Image 1"
+                  className="w-full h-auto object-cover"
+                  style={{ width: '442px', height: '442px' }}
+                />
+              </div>
+              <div className="relative">
+                <img
+                  src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                  alt="Small Image 2"
+                  className="w-full h-auto object-cover"
+                  style={{ width: '442px', height: '479px' }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 };

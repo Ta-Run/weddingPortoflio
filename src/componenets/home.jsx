@@ -7,7 +7,7 @@ function Home() {
       <img
         src={process.env.PUBLIC_URL + "images/wedding-photography-by-joseph-radhik-joseph-desktop 1.png"}
         alt="Photographer"
-        className="w-full h-full object-cover"
+        className="md:w-full h-full object-cover"
       />
 
       {/* Heading and Subheading */}
