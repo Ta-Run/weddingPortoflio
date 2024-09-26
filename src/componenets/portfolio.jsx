@@ -214,15 +214,9 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center mt-8">
-        <button
-          className="lg:w-[233px] lg:h-[74px] border border-[#FCFC04] text-center text-lg font-semibold text-[#FCFC04] bg-transparent hover:bg-[#FCFC04] hover:text-black transition-colors"
-        >
-          View All
-        </button>
+        
       </div>
-      </div>
-      
+
     </div>
   );
 };
