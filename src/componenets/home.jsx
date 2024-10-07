@@ -51,7 +51,9 @@ function Home() {
   };
   return (
     <div >
-      <div className='releative w-full h-screen flex hero' >
+      <div className='relative w-full h-screen flex hero p-4'>   
+      {/* <span className="absolute left-20 top-12  box-border h-16 w-16   border-t-8 border-l-8"></span>  */}
+
 
         <span className="absolute box-border h-16 w-16 top-24 left-20 border-t-8 border-l-8"></span>
 
