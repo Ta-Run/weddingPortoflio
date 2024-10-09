@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import "./home.css"
+import React, { useState } from "react";
+import './home.css'
 
 function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -7,7 +7,7 @@ function Home() {
   const images = [
     `${process.env.PUBLIC_URL}/images/image 8.png`,
     `${process.env.PUBLIC_URL}/images/image 17.png`,
-    `${process.env.PUBLIC_URL}/images/image 19.png`
+    `${process.env.PUBLIC_URL}/images/image 19.png`,
   ];
 
   const nextSlide = () => {
@@ -29,31 +29,31 @@ function Home() {
     {
       id: 1,
       image: `${process.env.PUBLIC_URL}/images/image 8.png`,
-      label: "Captured our special day beautifully, each moment immortalized with artistry. A true professional grateful for the memorie1.",
+      label:
+        "Captured our special day beautifully, each moment immortalized with artistry. A true professional grateful for the memorie1.",
     },
     {
       id: 2,
       image: `${process.env.PUBLIC_URL}/images/image 17.png`,
-      label: "Captured our special day beautifully, each moment immortalized with artistry. A true professional grateful for the memori2.",
+      label:
+        "Captured our special day beautifully, each moment immortalized with artistry. A true professional grateful for the memori2.",
     },
     {
       id: 3,
       image: `${process.env.PUBLIC_URL}/images/image 14.png`,
-      label: "Captured our special day beautifully, each moment immortalized with artistry. A true professional grateful for the memori3.",
+      label:
+        "Captured our special day beautifully, each moment immortalized with artistry. A true professional grateful for the memori3.",
     },
   ];
-
-
 
   // Function to go to a specific slide
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
   return (
-    <div >
-      <div className='relative w-full h-screen flex hero p-4'>   
-      {/* <span className="absolute left-20 top-12  box-border h-16 w-16   border-t-8 border-l-8"></span>  */}
-
+    <div>
+      <div className="relative w-full h-screen flex hero p-4">
+        {/* <span className="absolute left-20 top-12  box-border h-16 w-16   border-t-8 border-l-8"></span>  */}
 
         <span className="absolute box-border h-16 w-16 top-24 left-20 border-t-8 border-l-8"></span>
 
@@ -61,15 +61,62 @@ function Home() {
         <div
           className="  inset-x-0 top-[20%] mx-auto justify-center text-center  p-4"
           style={{
-            fontFamily: 'Raleway',
-            fontSize: '48px',
-            fontWeight: '800',
-            lineHeight: '78px',
+            fontFamily: "Raleway",
+            fontSize: "48px",
+            fontWeight: "800",
+            lineHeight: "78px",
           }}
         >
-          <h1 className="text-white">SOM <div  className="inline w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]"> </div>SHARMA</h1>
+          <div className="flex flex-col items-center">
+          <h1
+  className="text-white font-bold text-6xl"
+  style={{
+    fontFamily: "Arial, sans-serif",
+    lineHeight: "1.2",  // Increase line height for more space between lines
+    marginTop: "20px",  // Shifts the entire h1 down
+  }}
+>
+  SOM
+  <span className="inline-block mx-2"></span>
+  <div className="inline w-[500px] mx-auto mt-4 border-b-4 border-[#FCFC04]"></div>
+  <span className="inline-block mx-2"></span>
+  SHARMA
+</h1>
 
-          <p className="text-lg font-light text-white">Professional Photographer</p>
+  <div
+    style={{
+      width: "159px",  // Match the width of the upper line
+      height: "0px",
+      border: "2px solid #FCFC04",
+      margin: "30px 0",  // Vertical margin to create space between elements
+    }}
+  ></div>
+
+<div className="flex justify-center">
+<div className="flex justify-center">
+  <p
+    className="text-white"
+    style={{
+      width: "100%",  // Ensure the container is wide enough
+      maxWidth: "500px", // Set a max width to control it
+      fontFamily: "Raleway, sans-serif",
+      fontSize: "16px",
+      fontWeight: "500",
+      lineHeight: "18.78px",
+      letterSpacing: "0.14em",
+      textAlign: "center",  // Center the text horizontally
+      whiteSpace: "nowrap", // Prevent text from wrapping to the next line
+    }}
+  >
+    PROFESSIONAL PHOTOGRAPHER
+  </p>
+</div>
+
+</div>
+
+
+</div>
+
         </div>
         <span className="absolute right-20 bottom-0  box-border h-16 w-16    border-b-8 border-r-8"></span>
       </div>
@@ -78,7 +125,10 @@ function Home() {
         {/* Heading */}
         <div className="relative text-center mb-8">
           <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px]">
-            PORT<span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">FOLIO</span>
+            PORT
+            <span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
+              FOLIO
+            </span>
           </h2>
         </div>
 
@@ -86,7 +136,8 @@ function Home() {
         <div className="pt-20 w-full flex items-center justify-center relative ">
           <div className="flex w-[80%] justify-center items-center space-x-4 ">
             {/* Left Image */}
-            <div className="hidden lg:block transition-transform duration-300 ease-in-out cursor-default"
+            <div
+              className="hidden lg:block transition-transform duration-300 ease-in-out cursor-default"
               onClick={prevSlide}
             >
               <img
@@ -106,7 +157,8 @@ function Home() {
             </div>
 
             {/* Right Image */}
-            <div className="hidden lg:block transition-transform duration-300 ease-in-out"
+            <div
+              className="hidden lg:block transition-transform duration-300 ease-in-out"
               onClick={nextSlide}
             >
               <img
@@ -131,19 +183,21 @@ function Home() {
         </div>
         <div className="relative text-center mt-8">
           <h2 className="font-raleway text-[41.89px] font-extrabold leading-[49.18px] text-white">
-            SER<span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">VICE</span>
+            SER
+            <span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
+              VICE
+            </span>
           </h2>
         </div>
-
 
         <div className="px-4 md:px-8 lg:px-16 py-12">
           {/* Grid Container */}
           <div className="mx-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-20 ">
             {/* Card 1 */}
-            <div className=" border border-[#FFFFFF] shadow-lg mx-auto p-5  w-fit " >
+            <div className=" border border-[#FFFFFF] shadow-lg mx-auto p-5  w-fit ">
               {/* <div className="flex justify-center items-center h-full"> */}
               <img
-                src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                src={process.env.PUBLIC_URL + "/images/image 10.png"}
                 alt="Service"
                 className="w-full"
                 width={200}
@@ -154,17 +208,18 @@ function Home() {
                   Wedding
                 </h2>
                 <p className="mt-2 text-md text-center text-white shadow-md">
-                  "Weddings: A celebration of love, uniting hearts in joyous vows, creating lifelong memories of togetherness."
+                  "Weddings: A celebration of love, uniting hearts in joyous
+                  vows, creating lifelong memories of togetherness."
                 </p>
               </div>
               {/* </div> */}
             </div>
 
             {/* Card 2 */}
-            <div className=" border border-[#FFFFFF] shadow-lg mx-auto p-5  w-fit " >
+            <div className=" border border-[#FFFFFF] shadow-lg mx-auto p-5  w-fit ">
               {/* <div className="flex justify-center items-center h-full"> */}
               <img
-                src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                src={process.env.PUBLIC_URL + "/images/image 10.png"}
                 alt="Service"
                 className="w-full"
                 width={200}
@@ -175,7 +230,8 @@ function Home() {
                   Wedding
                 </h2>
                 <p className="mt-2 text-md text-center text-white shadow-md">
-                  "Weddings: A celebration of love, uniting hearts in joyous vows, creating lifelong memories of togetherness."
+                  "Weddings: A celebration of love, uniting hearts in joyous
+                  vows, creating lifelong memories of togetherness."
                 </p>
               </div>
               {/* </div> */}
@@ -183,10 +239,10 @@ function Home() {
 
             {/* Card 3 */}
 
-            <div className=" border border-[#FFFFFF] shadow-lg mx-auto p-5  w-fit " >
+            <div className=" border border-[#FFFFFF] shadow-lg mx-auto p-5  w-fit ">
               {/* <div className="flex justify-center items-center h-full"> */}
               <img
-                src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                src={process.env.PUBLIC_URL + "/images/image 10.png"}
                 alt="Service"
                 className="w-full"
                 width={200}
@@ -197,16 +253,17 @@ function Home() {
                   Wedding
                 </h2>
                 <p className="mt-2 text-md text-center text-white shadow-md">
-                  "Weddings: A celebration of love, uniting hearts in joyous vows, creating lifelong memories of togetherness."
+                  "Weddings: A celebration of love, uniting hearts in joyous
+                  vows, creating lifelong memories of togetherness."
                 </p>
               </div>
               {/* </div> */}
             </div>
             {/* Card 4 */}
-            <div className=" border border-[#FFFFFF] shadow-lg mx-auto p-5  w-fit " >
+            <div className=" border border-[#FFFFFF] shadow-lg mx-auto p-5  w-fit ">
               {/* <div className="flex justify-center items-center h-full"> */}
               <img
-                src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                src={process.env.PUBLIC_URL + "/images/image 10.png"}
                 alt="Service"
                 className="w-full"
                 width={200}
@@ -217,7 +274,8 @@ function Home() {
                   Wedding
                 </h2>
                 <p className="mt-2 text-md text-center text-white shadow-md">
-                  "Weddings: A celebration of love, uniting hearts in joyous vows, creating lifelong memories of togetherness."
+                  "Weddings: A celebration of love, uniting hearts in joyous
+                  vows, creating lifelong memories of togetherness."
                 </p>
               </div>
               {/* </div> */}
@@ -227,45 +285,53 @@ function Home() {
 
         {/* View All Button */}
         <div className="flex justify-center mt-8">
-          <button
-            className="lg:w-[233px] lg:h-[74px] border border-[#FCFC04] text-center text-lg font-semibold text-[#FCFC04] bg-transparent hover:bg-[#FCFC04] hover:text-black transition-colors"
-          >
+          <button className="lg:w-[233px] lg:h-[74px] border border-[#FCFC04] text-center text-lg font-semibold text-[#FCFC04] bg-transparent hover:bg-[#FCFC04] hover:text-black transition-colors">
             View All
           </button>
         </div>
 
-
         <div className="relative text-center pt-20 mb-8">
           <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px] text-white">
-            NUMBER <span className='w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]'>OF IMPRESSION</span>
+            NUMBER{" "}
+            <span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
+              OF IMPRESSION
+            </span>
           </h2>
         </div>
-        <div className=' flex item-center justify-around gap-4 place-items-center h-56 w-80%'>
-          <div className='text-2xl text-white'>
-            <div className='text-yellow-600'>7+</div>
+        <div className=" flex item-center justify-around gap-4 place-items-center h-56 w-80%">
+          <div className="text-2xl text-white">
+            <div className="text-yellow-600">7+</div>
             <div>Year of Experience</div>
           </div>
-          <div className='ml-4 text-2xl text-white'>
-            <div className='text-yellow-600'> 150+ </div>
+          <div className="ml-4 text-2xl text-white">
+            <div className="text-yellow-600"> 150+ </div>
             WEDDINGS COMPLETED SUCCESSFULLY
           </div>
         </div>
 
         <div className="relative text-center py-15">
           <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px] text-white">
-            TESTI <span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">MONIAL </span>
+            TESTI{" "}
+            <span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
+              MONIAL{" "}
+            </span>
           </h2>
         </div>
 
         {/* start */}
-        <div id="default-carousel" className="relative mb-4 mt-14 ml-4" data-carousel="static">
+        <div
+          id="default-carousel"
+          className="relative mb-4 mt-14 ml-4"
+          data-carousel="static"
+        >
           {/* Carousel wrapper */}
           <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
-                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"
-                  }`}
+                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                  index === currentSlide ? "opacity-100" : "opacity-0"
+                }`}
                 data-carousel-item
               >
                 {/* <div className="relative pt-16 flex items-center justify-center"> */}
@@ -280,7 +346,6 @@ function Home() {
                     width={200}
                   />
 
-
                   {/* Text */}
                   <div className=" w-1/2 ml-6 text-gray-700 text-center">
                     <p>
@@ -290,7 +355,9 @@ function Home() {
                         </span>
                       )}
                     </p>
-                    <div className="mt-4 font-semibold text-white">DAVID WARNER</div>
+                    <div className="mt-4 font-semibold text-white">
+                      DAVID WARNER
+                    </div>
                   </div>
                 </div>
                 {/* </div> */}
@@ -304,24 +371,25 @@ function Home() {
               <button
                 key={index}
                 type="button"
-                className={`w-3 h-3 rounded-full ${currentSlide === index ? "bg-yellow-500" : "bg-white"
-                  }`}
+                className={`w-3 h-3 rounded-full ${
+                  currentSlide === index ? "bg-yellow-500" : "bg-white"
+                }`}
                 aria-current={currentSlide === index}
                 aria-label={`Slide ${index + 1}`}
                 onClick={() => goToSlide(index)}
               ></button>
             ))}
           </div>
-
-
         </div>
         {/* end */}
 
         <div className="relative text-center pt-20 mb-6 ">
           <h2 className="font-raleway text-[32px] md:text-[41.89px] font-extrabold leading-[40px] md:leading-[49.18px] text-white">
-            F<span className='w-[100px] md:w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]'>AQ</span>
+            F
+            <span className="w-[100px] md:w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
+              AQ
+            </span>
           </h2>
-
         </div>
 
         <div className="pt-10 space-y-[20px] w-full flex flex-col items-center ">
@@ -336,7 +404,9 @@ function Home() {
           </div>
 
           <div className="flex justify-between w-[80%]  box-border p-4 border-2 items-center rounded-lg text-white">
-            <div>How to anticipate and plan to capture great moments at weddings</div>
+            <div>
+              How to anticipate and plan to capture great moments at weddings
+            </div>
             <div>+</div>
           </div>
 
@@ -353,9 +423,11 @@ function Home() {
 
         <div className="relative text-center pt-20 mb-6">
           <h2 className="font-raleway lg:text-[41.89px] font-extrabold lg:leading-[49.18px] text-white ">
-            GLIMPSE  <span className="w-[235px] mx-auto mt-2 border-b-2 border-[#FCFC04]">OF INSTAGRAM</span>
+            GLIMPSE{" "}
+            <span className="w-[235px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
+              OF INSTAGRAM
+            </span>
           </h2>
-
         </div>
 
         <div className="px-4 lg:px-8 py-12">
@@ -365,7 +437,7 @@ function Home() {
               {/* Large Images in the First Column */}
               <div className="relative">
                 <img
-                  src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                  src={process.env.PUBLIC_URL + "/images/image 10.png"}
                   alt="Instagram"
                   className="w-full h-[400px] object-cover"
                 />
@@ -375,7 +447,7 @@ function Home() {
                 {[...Array(2)].map((_, index) => (
                   <div key={index} className="relative">
                     <img
-                      src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                      src={process.env.PUBLIC_URL + "/images/image 10.png"}
                       alt="Instagram"
                       className="w-full h-[200px] object-cover"
                     />
@@ -387,9 +459,8 @@ function Home() {
         </div>
       </div>
       {/* </div> */}
-
     </div>
-  )
+  );
 }
 
 export default Home;
