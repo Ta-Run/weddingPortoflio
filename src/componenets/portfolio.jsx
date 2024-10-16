@@ -27,7 +27,7 @@ const Portfolio = () => {
       <div className="text-white py-12">
         {/* Heading */}
         <div className="relative text-center mb-8">
-          <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px]">
+          <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px] mt-12">
             PORTFOLIO
           </h2>
           {/* Underline */}

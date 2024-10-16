@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import "./home.css";
+import image17 from "../assests/image 17.png";
+import image5 from "../assests/image 5.png";
+import image19 from "../assests/image 19.png";
+import image8 from "../assests/image 8.png";
+import logoImage from "../assests/Vector.png";
 
 function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -119,7 +124,7 @@ function Home() {
         <span className="absolute right-20 bottom-12 box-border h-16 w-16 border-b-8 border-r-8"></span>
       </div>
 
-      <div className="text-white py-12">
+      <div className="text-white py-1">
         {/* Heading */}
         <div className="relative text-center mb-8">
           <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px]">
@@ -391,84 +396,84 @@ function Home() {
           </div>
         </div>
 
+        <div className="relative text-center py-10">
+          {" "}
+          {/* Adjust the padding value as needed */}
+          <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px] text-white mt-12 mb-0">
+            {" "}
+            {/* Removed bottom margin */}
+            TESTIMONIAL
+          </h2>
+          <span className="w-[140px] mx-auto mt-2 border-b-2 border-[#FCFC04] block ml-[51%]"></span>{" "}
+          {/* Added left margin */}
+        </div>
 
+        {/* start */}
+        {/* start */}
+        {/* start */}
+        <div
+          id="default-carousel"
+          className="relative mb-4 mt-20 ml-4"
+          data-carousel="static"
+        >
+          {/* Carousel wrapper */}
+          <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+            {slides.map((slide, index) => (
+              <div
+                key={slide.id}
+                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                  index === currentSlide ? "opacity-100" : "opacity-0"
+                }`}
+                data-carousel-item
+              >
+                <div className="box-content p-6 w-[80%] border-4 border-gray-300 flex items-center mx-auto justify-center gap-20 z-10 bg-red flex-row-reverse">
+                  {/* Image */}
+                  <img
+                    src={slide.image}
+                    alt={`Slide ${slide.id}`}
+                    height={300}
+                    width={200}
+                    className="object-cover"
+                  />
 
-        <div className="relative text-center py-10"> {/* Adjust the padding value as needed */}
-  <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px] text-white mt-12 mb-0"> {/* Removed bottom margin */}
-    TESTIMONIAL
-  </h2>
-  <span className="w-[140px] mx-auto mt-2 border-b-2 border-[#FCFC04] block ml-[51%]"></span> {/* Added left margin */}
-</div>
+                  {/* Text */}
+                  <div className="w-1/2 mr-6 text-gray-700 text-left">
+                    <p className="text-sm leading-normal h-16 overflow-hidden text-ellipsis">
+                      {" "}
+                      {/* Control height and overflow */}
+                      {slide.label && (
+                        <span className="text-md text-white sm:text-lg">
+                          Captured our special day beautifully, each moment
+                          immortalized with artistry. A true professional,
+                          grateful for the memories.
+                        </span>
+                      )}
+                    </p>
+                    <div className="mt-2 text-white leading-normal">
+                      DAVID WARNER
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
-
-
-
-
-{/* start */}
-{/* start */}
-{/* start */}
-<div
-  id="default-carousel"
-  className="relative mb-4 mt-20 ml-4"
-  data-carousel="static"
->
-  {/* Carousel wrapper */}
-  <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-    {slides.map((slide, index) => (
-      <div
-        key={slide.id}
-        className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-          index === currentSlide ? "opacity-100" : "opacity-0"
-        }`}
-        data-carousel-item
-      >
-        <div className="box-content p-6 w-[80%] border-4 border-gray-300 flex items-center mx-auto justify-center gap-20 z-10 bg-red flex-row-reverse">
-          {/* Image */}
-          <img
-            src={slide.image}
-            alt={`Slide ${slide.id}`}
-            height={300}
-            width={200}
-            className="object-cover"
-          />
-
-          {/* Text */}
-          <div className="w-1/2 mr-6 text-gray-700 text-left">
-            <p className="text-sm leading-normal h-16 overflow-hidden text-ellipsis"> {/* Control height and overflow */}
-              {slide.label && (
-                <span className="text-md text-white sm:text-lg">
-                  Captured our special day beautifully, each moment immortalized with artistry. A true professional, grateful for the memories.
-                </span>
-              )}
-            </p>
-            <div className="mt-2 text-white leading-normal">
-              DAVID WARNER
-            </div>
+          {/* Slider indicators */}
+          <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`w-3 h-3 rounded-full ${
+                  currentSlide === index ? "bg-yellow-500" : "bg-white"
+                }`}
+                aria-current={currentSlide === index}
+                aria-label={`Slide ${index + 1}`}
+                onClick={() => goToSlide(index)}
+              ></button>
+            ))}
           </div>
         </div>
-      </div>
-    ))}
-  </div>
-
-  {/* Slider indicators */}
-  <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-    {slides.map((_, index) => (
-      <button
-        key={index}
-        type="button"
-        className={`w-3 h-3 rounded-full ${
-          currentSlide === index ? "bg-yellow-500" : "bg-white"
-        }`}
-        aria-current={currentSlide === index}
-        aria-label={`Slide ${index + 1}`}
-        onClick={() => goToSlide(index)}
-      ></button>
-    ))}
-  </div>
-</div>
-
-
-
 
         {/* end */}
 
@@ -518,34 +523,121 @@ function Home() {
             </span>
           </h2>
         </div>
+        {/* .................................................. */}
 
-        <div className="px-4 lg:px-8 py-12">
-          {/* Center the grid container */}
-          <div className="flex justify-center">
-            <div className="grid lg:grid-cols-2 gap-4">
-              {/* Large Images in the First Column */}
-              <div className="relative">
-                <img
-                  src={process.env.PUBLIC_URL + "/images/image 10.png"}
-                  alt="Instagram"
-                  className="w-full h-[400px] object-cover"
-                />
-              </div>
-              {/* Smaller Images in the Second Column */}
-              <div className="space-y-4">
-                {[...Array(2)].map((_, index) => (
-                  <div key={index} className="relative">
-                    <img
-                      src={process.env.PUBLIC_URL + "/images/image 10.png"}
-                      alt="Instagram"
-                      className="w-full h-[200px] object-cover"
-                    />
+        <div className="App">
+          <div className="px-8 lg:px-8 py-1">
+            {/* Center the grid container */}
+            <div className="flex justify-center">
+              {/* Set 2 columns and center the grid with padding */}
+              <div
+                className="grid grid-cols-2 gap-8 mx-2 my-12"
+                style={{ paddingLeft: "140px" }}
+              >
+                {" "}
+                {/* Adjust padding-left as needed */}
+                {/* Custom margin values */}
+                {/* Large Image in the First Cell of the First Row */}
+                <div className="relative">
+                  {/* Large Image without link */}
+                  <img
+                    src={image17} // Imported image
+                    alt="Large Image"
+                    className="object-cover"
+                    style={{
+                      width: "652px", // Set the specified width
+                      height: "366px", // Set the specified height
+                      opacity: 1, // Set opacity to 1 for visibility
+                    }}
+                  />
+
+                  {/* Centered Logo with link */}
+                  <div
+                    className="absolute"
+                    style={{
+                      width: "104px", // Set the specified width for logo
+                      height: "104px", // Set the specified height for logo
+                      top: "42%", // Center vertically
+                      left: "50%", // Center horizontally
+                      transform: "translate(-50%, -50%)", // Adjust position to truly center
+                      opacity: 0.8, // Set opacity to 0.8
+                      cursor: "pointer", // Show pointer cursor on hover
+                    }}
+                  >
+                    <a
+                      href="https://www.instagram.com/yourInstagramHandle"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full h-full" // Make the anchor fill the logo area
+                    >
+                      <img
+                        src={logoImage} // Imported logo image
+                        alt="Logo"
+                        className="object-cover w-full h-full logo-image" // Add class for hover effect
+                      />
+                    </a>
                   </div>
-                ))}
+                </div>
+                {/* First Small Image in the Second Cell of the First Row */}
+                <div className="relative">
+                  <img
+                    src={image8} // Imported image
+                    alt="Small Image 1"
+                    className="object-cover"
+                    style={{
+                      width: "442px",
+                      height: "442px",
+                      opacity: 1, // Set to 1 for visibility
+                    }}
+                  />
+                </div>
+                {/* Second Small Image in the First Cell of the Second Row */}
+                <div className="relative">
+                  <img
+                    src={image5} // Imported image
+                    alt="Small Image 2"
+                    className="object-cover"
+                    style={{
+                      width: "652px", // Custom width
+                      height: "557px", // Custom height
+                      opacity: 1, // Set to 1 for visibility
+                      position: "absolute", // Set position to absolute
+                      top: "-80px", // Set the top position (use quotes for string value)
+                    }}
+                  />
+                </div>
+                {/* Third Small Image in the Second Cell of the Second Row */}
+                <div className="relative">
+                  <img
+                    src={image17} // Imported image
+                    alt="Small Image 3"
+                    className="object-cover"
+                    style={{
+                      width: "442px", // Custom width
+                      height: "479px", // Custom height
+                      opacity: 1, // Set to 1 for visibility
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>
+
+          {/* CSS for zoom effect */}
+          <style>
+            {`
+      .logo-image {
+        transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+      }
+
+      .logo-image:hover {
+        transform: scale(1.1); /* Zoom effect on hover */
+      }
+    `}
+          </style>
         </div>
+
+        {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
       </div>
       {/* </div> */}
     </div>
