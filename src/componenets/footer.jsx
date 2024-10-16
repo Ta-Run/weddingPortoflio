@@ -11,10 +11,10 @@ function Footer() {
         <div
           className="absolute transform rotate-[-6deg]"
           style={{
-            width: "787px", // Adjusted width
-            height: "1016px", // Adjusted height
-            top: "-239px", // Fine-tuned top value to balance positioning
-            left: "-14px", // Adjust left to show the image properly
+            width: "450px", // Adjusted width
+            height: "612px", // Adjusted height
+            top: "-145px", // Fine-tuned top value to balance positioning
+            left: "181px", // Adjust left to show the image properly
             backgroundImage: `url(${image})`,
             backgroundSize: "cover", // Ensures the image covers the div without leaving white space
             backgroundPosition: "center", // Centers the image both horizontally and vertically

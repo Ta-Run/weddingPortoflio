@@ -553,27 +553,33 @@ function Home() {
 
                   {/* Centered Logo with link */}
                   <div
-                    className="absolute"
+                    className="absolute transition-opacity duration-300" // Add transition for smooth effect
                     style={{
-                      width: "104px", // Set the specified width for logo
-                      height: "104px", // Set the specified height for logo
-                      top: "42%", // Center vertically
-                      left: "50%", // Center horizontally
-                      transform: "translate(-50%, -50%)", // Adjust position to truly center
-                      opacity: 0.8, // Set opacity to 0.8
-                      cursor: "pointer", // Show pointer cursor on hover
+                      width: "104px",
+                      height: "104px",
+                      top: "42%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      opacity: 0, // Initially hidden
+                      cursor: "pointer",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.opacity = 0.8; // Show logo on hover
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.opacity = 0; // Hide logo when not hovering
                     }}
                   >
                     <a
                       href="https://www.instagram.com/yourInstagramHandle"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full h-full" // Make the anchor fill the logo area
+                      className="block w-full h-full"
                     >
                       <img
-                        src={logoImage} // Imported logo image
+                        src={logoImage}
                         alt="Logo"
-                        className="object-cover w-full h-full logo-image" // Add class for hover effect
+                        className="object-cover w-full h-full logo-image"
                       />
                     </a>
                   </div>
@@ -609,7 +615,7 @@ function Home() {
                 {/* Third Small Image in the Second Cell of the Second Row */}
                 <div className="relative">
                   <img
-                    src={image17} // Imported image
+                    src={image19} // Imported image
                     alt="Small Image 3"
                     className="object-cover"
                     style={{

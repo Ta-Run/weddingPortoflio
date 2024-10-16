@@ -1,5 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
+import teamPhoto from "../assests/teamphoto.png";
+import teamphoto1 from "../assests/teamphoto1.png"; // Path to your image 2
+import teamphoto2 from "../assests/teamphoto2.png"; // Path to your image 3
+import teamPhoto3 from "../assests/teamphoto3.png"; // Path to your image 4
 
 function AboutUs() {
   return (
@@ -89,77 +93,83 @@ function AboutUs() {
         ></div>
       </div>
 
+      {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
+
       {/* Team Members */}
-      <div className="flex flex-row justify-center space-x-20">
-        {" "}
-        {/* Added space-x-4 for horizontal spacing between images */}
-        {/* Team Member 1 */}
-        <div className="flex flex-col items-center">
-          <img
-            src={process.env.PUBLIC_URL + "/images/teamphoto.png"}
-            alt="Team Photo 1"
-            className="w-[233px] h-[268px] object-cover opacity-100 border-none"
-            style={{ border: "none", outline: "none" }}
-          />
-          <div className="text-left mt-2 w-full">
-            <div className="font-semibold text-white">SOM SHARMA</div>
-            <div className="text-white mt-2">Videographer</div>
+      <div className="overflow-x-auto whitespace-nowrap">
+        <div className="flex flex-row justify-center min-w-[120vw]">
+          {/* Team Member 1 */}
+          <div className="flex flex-col items-center inline-block mx-20">
+            {" "}
+            {/* Increased margin */}
+            <img
+              src={teamPhoto} // Using the imported image
+              alt="Team Photo 1"
+              className="w-[233px] h-[268px] object-cover border-none"
+            />
+            <div className="text-left mt-2 w-full">
+              <div className="font-semibold text-white">SOM SHARMA</div>
+              <div className="text-white mt-2">Videographer</div>
+            </div>
+          </div>
+          {/* Team Member 2 */}
+          <div className="flex flex-col items-center inline-block mx-20">
+            {" "}
+            {/* Increased margin */}
+            <img
+              src={teamPhoto3} // Using the imported image
+              alt="Team Photo 2"
+              className="w-[233px] h-[268px] object-cover border-none"
+            />
+            <div className="text-left mt-2 w-full">
+              <div className="font-semibold text-white">SOM SHARMA</div>
+              <div className="text-white mt-2">Portrait</div>
+            </div>
+          </div>
+          {/* Team Member 3 */}
+          <div className="flex flex-col items-center inline-block mx-20">
+            {" "}
+            {/* Increased margin */}
+            <img
+              src={teamphoto2} // Using the imported image
+              alt="Team Photo 3"
+              className="w-[233px] h-[268px] object-cover border-none"
+            />
+            <div className="text-left mt-2 w-full">
+              <div className="font-semibold text-white">SOM SHARMA</div>
+              <div className="text-white mt-2">Hair & MUA</div>
+            </div>
+          </div>
+          {/* Team Member 4 */}
+          <div className="flex flex-col items-center inline-block mx-20">
+            {" "}
+            {/* Increased margin */}
+            <img
+              src={teamphoto1} // Using the imported image
+              alt="Team Photo 4"
+              className="w-[233px] h-[268px] object-cover border-none"
+            />
+            <div className="text-left mt-2 w-full">
+              <div className="font-semibold text-white">SOM SHARMA</div>
+              <div className="text-white mt-2">Hair & MUA</div>
+            </div>
           </div>
         </div>
-        {/* Team Member 2 */}
-        <div className="flex flex-col items-center">
-          <img
-            src={process.env.PUBLIC_URL + "/images/teamphoto.png"}
-            alt="Team Photo 2"
-            className="w-[233px] h-[268px] object-cover opacity-100 border-none"
-            style={{ border: "none", outline: "none" }}
-          />
-          <div className="text-left mt-2 w-full">
-            <div className="font-semibold text-white">SOM SHARMA</div>
-            <div className="text-white mt-2">Portrait</div>
-          </div>
-        </div>
-
-
-        <div className="flex flex-col items-center">
-          <img
-            src={process.env.PUBLIC_URL + "/images/teamphoto.png"}
-            alt="Team Photo 2"
-            className="w-[233px] h-[268px] object-cover opacity-100 border-none"
-            style={{ border: "none", outline: "none" }}
-          />
-          <div className="text-left mt-2 w-full">
-            <div className="font-semibold text-white">SOM SHARMA</div>
-            <div className="text-white mt-2">Portrait</div>
-          </div>
-        </div>
-        {/* Team Member 3 */}
-        <div className="flex flex-col items-center">
-          <img
-            src={process.env.PUBLIC_URL + "/images/teamphoto.png"}
-            alt="Team Photo 3"
-            className="w-[233px] h-[268px] object-cover opacity-100 border-none"
-            style={{ border: "none", outline: "none" }}
-          />
-          <div className="text-left mt-2 w-full">
-            <div className="font-semibold text-white">SOM SHARMA</div>
-            <div className="text-white mt-2">Hair & MUA</div>
-          </div>
-        </div>
-        {/* Team Member 4 */}
-        <div className="flex flex-col items-center">
-          <img
-            src={process.env.PUBLIC_URL + "/images/teamphoto.png"}
-            alt="Team Photo 4"
-            className="w-[233px] h-[268px] object-cover opacity-100 border-none"
-            style={{ border: "none", outline: "none" }}
-          />
-          <div className="text-left mt-2 w-full">
-            <div className="font-semibold text-white">SOM SHARMA</div>
-            <div className="text-white mt-2">Hair & MUA</div>
-          </div>
-        </div>
+        {/* CSS to hide scrollbar */}
+        <style>
+          {`
+      .overflow-x-auto {
+        overflow-x: auto;
+        scrollbar-width: none; /* For Firefox */
+      }
+      .overflow-x-auto::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+      }
+    `}
+        </style>
       </div>
+
+      {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
     </div>
   );
 }
