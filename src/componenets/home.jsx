@@ -10,7 +10,7 @@ function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    `${process.env.PUBLIC_URL}/images/image 8.png`,
+    `${process.env.PUBLIC_URL}/images/image 17.png`,
     `${process.env.PUBLIC_URL}/images/image 17.png`,
     `${process.env.PUBLIC_URL}/images/image 19.png`,
   ];
@@ -33,7 +33,7 @@ function Home() {
   const slides = [
     {
       id: 1,
-      image: `${process.env.PUBLIC_URL}/images/image 8.png`,
+      image: `${process.env.PUBLIC_URL}/images/image 17.png`,
       label:
         "Captured our special day beautifully, each moment immortalized with artistry. A true professional grateful for the memorie1.",
     },
