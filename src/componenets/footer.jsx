@@ -3,7 +3,7 @@ import image from "../assests/ccc128.jpg";
 
 function Footer() {
   return (
-    <footer className="relative w-full text-white mt-40 bg-black overflow-hidden">
+    <footer className="bg-red relative w-full text-white mt-40 bg-black overflow-hidden">
       {/* Watermark as background */}
       <div className="absolute inset-0 h-full w-full overflow-hidden">
         {" "}
@@ -40,10 +40,10 @@ function Footer() {
 
         {/* Work Section */}
         <div className="flex flex-col items-end justify-center text-right pr-40">
-          <h2 className="text-lg font-bold tracking-[0.17em]">Work</h2>
+          <h2 className="text-lg font-bold tracking-[0.17em]">WORK</h2>
           <ul className="list-none">
-            <li className="py-1 tracking-[0.17em]">Portfolio</li>
-            <li className="py-1 tracking-[0.17em]">Service</li>
+            <li className="py-1 tracking-[0.17em]">PORTFOLIO</li>
+            <li className="py-1 tracking-[0.17em]">SERVICE</li>
           </ul>
         </div>
       </div>
