@@ -538,36 +538,29 @@ function Home() {
                 {/* Adjust padding-left as needed */}
                 {/* Custom margin values */}
                 {/* Large Image in the First Cell of the First Row */}
-                <div className="relative">
-                  {/* Large Image without link */}
+                <div className="relative group overflow-hidden">
+                  {/* Large Image with Zoom on Hover */}
                   <img
                     src={image17} // Imported image
                     alt="Large Image"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-300 ease-in-out transform scale-100 group-hover:scale-105"
                     style={{
                       width: "652px", // Set the specified width
                       height: "366px", // Set the specified height
-                      opacity: 1, // Set opacity to 1 for visibility
+                      opacity: 1, // Image visible
                     }}
                   />
 
-                  {/* Centered Logo with link */}
+                  {/* Centered Logo with Zoom on Hover */}
                   <div
-                    className="absolute transition-opacity duration-300" // Add transition for smooth effect
+                    className="absolute opacity-0 group-hover:opacity-80 transition-all duration-300"
                     style={{
                       width: "104px",
                       height: "104px",
                       top: "42%",
                       left: "50%",
                       transform: "translate(-50%, -50%)",
-                      opacity: 0, // Initially hidden
                       cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.opacity = 0.8; // Show logo on hover
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.opacity = 0; // Hide logo when not hovering
                     }}
                   >
                     <a
@@ -578,8 +571,8 @@ function Home() {
                     >
                       <img
                         src={logoImage}
-                        alt="Logo"
-                        className="object-cover w-full h-full logo-image"
+                        alt="Instagram Logo"
+                        className="object-cover w-full h-full transition-transform duration-300 ease-in-out transform scale-100 group-hover:scale-110"
                       />
                     </a>
                   </div>

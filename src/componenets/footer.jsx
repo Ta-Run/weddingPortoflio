@@ -1,62 +1,94 @@
-import React from "react";
-import image from "../assests/ccc128.jpg";
+import React, { forwardRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom"; // Import useLocation to get current path
+import image from "../assests/ccc128.jpg"; // Adjust the path if needed
 
-function Footer() {
+const Footer = forwardRef((props, ref) => {
+  const navigate = useNavigate(); // Hook to navigate
+  const location = useLocation(); // Hook to get current location
+
+  // Define the active path
+  const activePath = location.pathname; // This gets the current active path
+
+  // Define routes
+  const routes = [
+    { path: "/", name: "HOME" },
+    { path: "/portfolio", name: "PORTFOLIO" },
+    { path: "/service", name: "SERVICE" },
+    { path: "/about-us", name: "ABOUT US" },
+  ];
+
+  // Function to handle page change
+  const handlePageChange = (path) => {
+    navigate(path); // Navigate to the selected path
+  };
+
   return (
-    <footer className="bg-red relative w-full text-white mt-40 bg-black overflow-hidden">
+    <footer
+      ref={ref}
+      className="relative w-full text-white mt-40 bg-black overflow-hidden"
+    >
       {/* Watermark as background */}
       <div className="absolute inset-0 h-full w-full overflow-hidden">
-        {" "}
-        {/* Add h-full and w-full */}
         <div
           className="absolute transform rotate-[-6deg]"
           style={{
-            width: "450px", // Adjusted width
-            height: "612px", // Adjusted height
-            top: "-145px", // Fine-tuned top value to balance positioning
-            left: "181px", // Adjust left to show the image properly
+            width: "450px",
+            height: "612px",
+            top: "-145px",
+            left: "181px",
             backgroundImage: `url(${image})`,
-            backgroundSize: "cover", // Ensures the image covers the div without leaving white space
-            backgroundPosition: "center", // Centers the image both horizontally and vertically
-            backgroundRepeat: "no-repeat", // No repeat to avoid duplication of image
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
           }}
         ></div>
       </div>
 
       {/* Footer Content */}
-      <div className="relative z-10 container mx-auto p-4 flex justify-between">
-        <div className="pl-32">
-          <h1 className="text-left font-bold text-5xl leading-[52px] tracking-[0.17em]">
+      <div className="relative z-10 container mx-auto p-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+        {/* Left Section */}
+        <div className="mb-4 md:mb-0 md:pl-32 w-full md:w-auto">
+          <h1 className="font-bold text-5xl leading-[52px] tracking-[0.17em]">
             RISHABH SHARMA
           </h1>
-          <h2 className="text-left font-bold text-5xl leading-[52px] tracking-[0.17em] mb-4">
+          <h2 className="font-bold text-4xl md:text-5xl leading-[52px] tracking-[0.17em] mb-4">
             PHOTOGRAPHY
           </h2>
-          <p className="text-lg mt-8 tracking-[0.05em] opacity-100 w-96 h-6">
+          <p className="text-lg mt-8 tracking-[0.05em] opacity-100">
             All Images and Videos Are Copyrighted.
           </p>
           <p className="text-sm mt-2 tracking-[0.05em]">Terms and Conditions</p>
         </div>
 
-        {/* Work Section */}
-        <div className="flex flex-col items-end justify-center text-right pr-40">
-          <h2 className="text-lg font-bold tracking-[0.17em]">WORK</h2>
+        {/* Navigation Links */}
+        <div className="flex flex-col items-center md:items-end justify-center pr-0 md:pr-40 w-full md:w-auto">
           <ul className="list-none">
-            <li className="py-1 tracking-[0.17em]">PORTFOLIO</li>
-            <li className="py-1 tracking-[0.17em]">SERVICE</li>
+            {routes
+              .filter((route) => route.path !== activePath) // Exclude the active page
+              .map((route) => (
+                <li key={route.path} className="py-1 tracking-[0.17em]">
+                  <button
+                    onClick={() => handlePageChange(route.path)}
+                    className="text-white hover:text-yellow-400 transition-colors duration-300"
+                  >
+                    {route.name}
+                  </button>
+                </li>
+              ))}
           </ul>
         </div>
       </div>
 
       {/* Centered Yellow Line */}
-      <div className="relative z-20 flex justify-center mt-4">
-        <div className="border-t-2 border-yellow-400 w-[1218px] mt-2 mr-8"></div>
-      </div>
+     <div className="relative z-20 flex justify-center mt-4">
+  <div className="border-t-2 border-yellow-400 w-[1218px] mt-2 mx-auto md:mx-0 md:mr-8"></div>
+</div>
 
-      {/* Button Layout Below the Yellow Line */}
-      <div className="relative z-10 container mx-auto p-4 flex justify-between mt-4">
+
+      {/* Buttons Layout Below the Yellow Line */}
+      <div className="relative z-10 container mx-auto p-4 flex flex-col sm:flex-row justify-between mt-4">
         {/* Call and Email Buttons */}
-        <div className="flex space-x-4 ml-32">
+        <div className="flex space-x-4 ml-0 sm:ml-32 mb-4 sm:mb-0 justify-center sm:justify-start">
           <a href="tel:+1234567890">
             <button className="border border-yellow-400 text-white hover:bg-yellow-500 hover:text-black transition-colors duration-300 w-36 h-11">
               Call
@@ -73,8 +105,8 @@ function Footer() {
           </a>
         </div>
 
-        {/* Facebook and Instagram Buttons */}
-        <div className="flex space-x-4 mr-40">
+        {/* Social Media Buttons */}
+        <div className="flex space-x-4 mr-0 sm:mr-40 justify-center sm:justify-start">
           <a
             href="https://www.facebook.com/"
             target="_blank"
@@ -97,6 +129,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+});
 
 export default Footer;
