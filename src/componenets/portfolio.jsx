@@ -53,10 +53,10 @@ const Portfolio = () => {
                 strokeLinejoin="round"
                 strokeWidth={2}
                 d="M15 19l-7-7 7-7"
-              />
+              /> 
             </svg>
           </button>
-
+                                           
           {/* Slider Content */}
           <div className="flex justify-center items-center space-x-4">
             {/* Left Image */}
@@ -126,13 +126,13 @@ const Portfolio = () => {
               {/* Large Images in the First Column */}
               <div className="relative">
                 <img
-                  src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                  src={process.env.PUBLIC_URL + '/images/image 17.png'}
                   alt="Large Image"
                   className="w-full h-auto object-cover"
                   style={{ width: '652px', height: '366px' }}
                 />
                 <img
-                  src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                  src={process.env.PUBLIC_URL + '/images/image 5.png'}
                   alt="Large Image"
                   className="w-full h-auto pt-6 object-cover"
                   style={{ width: '652px', height: '565px' }}
@@ -143,7 +143,7 @@ const Portfolio = () => {
               <div className="flex flex-col gap-4">
                 <div className="relative">
                   <img
-                    src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                    src={process.env.PUBLIC_URL + '/images/image 8.png'}
                     alt="Small Image 1"
                     className="w-full h-auto object-cover"
                     style={{ width: '442px', height: '442px' }}
@@ -151,7 +151,7 @@ const Portfolio = () => {
                 </div>
                 <div className="relative">
                   <img
-                    src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                    src={process.env.PUBLIC_URL + '/images/image 19.png'}
                     alt="Small Image 2"
                     className="w-full h-auto object-cover"
                     style={{ width: '442px', height: '479px' }}
@@ -179,13 +179,13 @@ const Portfolio = () => {
               {/* Large Images in the First Column */}
               <div className="relative">
                 <img
-                  src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                  src={process.env.PUBLIC_URL + '/images/image 34.png'}
                   alt="Large Image"
                   className="w-full h-auto object-cover"
                   style={{ width: '652px', height: '366px' }}
                 />
                 <img
-                  src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                  src={process.env.PUBLIC_URL + '/images/image 32.png'}
                   alt="Large Image"
                   className="w-full h-auto pt-6 object-cover"
                   style={{ width: '652px', height: '565px' }}
@@ -196,7 +196,7 @@ const Portfolio = () => {
               <div className="flex flex-col gap-4">
                 <div className="relative">
                   <img
-                    src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                    src={process.env.PUBLIC_URL + '/images/image 33.png'}
                     alt="Small Image 1"
                     className="w-full h-auto object-cover"
                     style={{ width: '442px', height: '442px' }}
@@ -204,7 +204,7 @@ const Portfolio = () => {
                 </div>
                 <div className="relative">
                   <img
-                    src={process.env.PUBLIC_URL + '/images/image 10.png'}
+                    src={process.env.PUBLIC_URL + '/images/image 31.png'}
                     alt="Small Image 2"
                     className="w-full h-auto object-cover"
                     style={{ width: '442px', height: '479px' }}
