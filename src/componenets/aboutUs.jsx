@@ -1,17 +1,14 @@
 import React from "react";
-import Slider from "react-slick";
 import teamPhoto from "../assests/teamphoto.png";
-import teamphoto1 from "../assests/teamphoto1.png"; // Path to your image 2
-import teamphoto2 from "../assests/teamphoto2.png"; // Path to your image 3
-import teamPhoto3 from "../assests/teamphoto3.png"; // Path to your image 4
+import teamphoto1 from "../assests/teamphoto1.png";
+import teamphoto2 from "../assests/teamphoto2.png";
+import teamPhoto3 from "../assests/teamphoto3.png";
 
 function AboutUs() {
   return (
-    <div className="px-4 md:px-8 lg:px-16 py-12">
+    <div className="px-4 md:px-8 lg:px-16 py-12 pb-0"> {/* Reduced bottom padding */}
       {/* Title and Line */}
       <div className="relative text-center mb-8 py-12">
-        {" "}
-        {/* Added padding y-axis (top and bottom) */}
         <h2 className="font-raleway text-[32px] md:text-[41.89px] font-extrabold leading-[40px] md:leading-[49.18px] relative inline-block">
           ABOUT US
         </h2>
@@ -22,8 +19,7 @@ function AboutUs() {
             maxWidth: "159px",
             transform: "translateX(1%)",
           }}
-        ></div>{" "}
-        {/* Positioned from the right corner of the text */}
+        ></div>
       </div>
 
       {/* Grid for Text and Image */}
@@ -44,7 +40,6 @@ function AboutUs() {
             photographer; I'm a storyteller weaving your love story through the
             lens. Excited to be a part of your journey!
           </p>
-          {/* Name and Designation */}
           <span className="block mt-4 text-lg font-semibold">SOM SHARMA</span>
           <span className="block text-sm font-light">
             FOUNDER & HEAD PHOTOGRAPHER
@@ -53,18 +48,16 @@ function AboutUs() {
           {/* Experience and Weddings */}
           <div className="grid grid-cols-2 gap-4 mt-8">
             <div className="text-center">
-              <div className="text-[#FCFC04] text-3xl font-bold">7+</div>{" "}
+              <div className="text-[#FCFC04] text-3xl font-bold">7+</div>
               <div className="text-lg">Years of Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-[#FCFC04] text-3xl font-bold">150+</div>{" "}
+              <div className="text-[#FCFC04] text-3xl font-bold">150+</div>
               <div className="text-lg">Weddings Completed</div>
             </div>
           </div>
         </div>
 
-        {/* Image Section */}
-        {/* Image Section */}
         {/* Image Section */}
         <div className="flex justify-center lg:justify-end">
           <img
@@ -73,13 +66,13 @@ function AboutUs() {
               "/images/wedding-photography-by-joseph-radhik-joseph-desktop 1.png"
             }
             alt="Photographer"
-            className="w-[100%] lg:w-[100%] h-auto object-cover ml-[-80px]" // Adjust ml for left margin
+            className="w-[100%] lg:w-[100%] h-auto object-cover ml-[-9px]"
           />
         </div>
       </div>
 
       {/* Team Section Title */}
-      <div className="relative text-center mb-8 pt-10">
+      <div className="relative text-center mb-8 pt-10 pb-0">
         <h2 className="font-raleway text-[32px] md:text-[41.89px] font-extrabold leading-[40px] md:leading-[49.18px] relative inline-block">
           TEAM
         </h2>
@@ -93,83 +86,87 @@ function AboutUs() {
         ></div>
       </div>
 
-      {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
-
       {/* Team Members */}
-      <div className="overflow-x-auto whitespace-nowrap">
-        <div className="flex flex-row justify-center min-w-[120vw]">
+      <div className="overflow-x-auto whitespace-nowrap scroll-smooth">
+        <div
+          className="flex justify-center gap-[11.5rem]"
+          style={{
+            minWidth: "800px",
+            paddingLeft: "81.25rem",
+            paddingRight: "81.25rem",
+          }}
+        >
           {/* Team Member 1 */}
-          <div className="flex flex-col items-center inline-block mx-20">
-            {" "}
-            {/* Increased margin */}
+          <div className="flex-shrink-0 flex flex-col items-center">
             <img
-              src={teamPhoto} // Using the imported image
+              src={teamPhoto}
               alt="Team Photo 1"
-              className="w-[233px] h-[268px] object-cover border-none"
+              className="w-[200px] h-[230px] object-cover border-none"
             />
             <div className="text-left mt-2 w-full">
               <div className="font-semibold text-white">SOM SHARMA</div>
-              <div className="text-white mt-2">Videographer</div>
+              <div className="text-white mt-1">Videographer</div>
             </div>
           </div>
+
           {/* Team Member 2 */}
-          <div className="flex flex-col items-center inline-block mx-20">
-            {" "}
-            {/* Increased margin */}
+          <div className="flex-shrink-0 flex flex-col items-center">
             <img
-              src={teamPhoto3} // Using the imported image
+              src={teamPhoto3}
               alt="Team Photo 2"
-              className="w-[233px] h-[268px] object-cover border-none"
+              className="w-[200px] h-[230px] object-cover border-none"
             />
             <div className="text-left mt-2 w-full">
               <div className="font-semibold text-white">SOM SHARMA</div>
-              <div className="text-white mt-2">Portrait</div>
+              <div className="text-white mt-1">Portrait</div>
             </div>
           </div>
+
           {/* Team Member 3 */}
-          <div className="flex flex-col items-center inline-block mx-20">
-            {" "}
-            {/* Increased margin */}
+          <div className="flex-shrink-0 flex flex-col items-center">
             <img
-              src={teamphoto2} // Using the imported image
+              src={teamphoto2}
               alt="Team Photo 3"
-              className="w-[233px] h-[268px] object-cover border-none"
+              className="w-[200px] h-[230px] object-cover border-none"
             />
             <div className="text-left mt-2 w-full">
               <div className="font-semibold text-white">SOM SHARMA</div>
-              <div className="text-white mt-2">Hair & MUA</div>
+              <div className="text-white mt-1">Hair & MUA</div>
             </div>
           </div>
+
           {/* Team Member 4 */}
-          <div className="flex flex-col items-center inline-block mx-20">
-            {" "}
-            {/* Increased margin */}
+          <div className="flex-shrink-0 flex flex-col items-center">
             <img
-              src={teamphoto1} // Using the imported image
+              src={teamphoto1}
               alt="Team Photo 4"
-              className="w-[233px] h-[268px] object-cover border-none"
+              className="w-[200px] h-[230px] object-cover border-none"
             />
             <div className="text-left mt-2 w-full">
               <div className="font-semibold text-white">SOM SHARMA</div>
-              <div className="text-white mt-2">Hair & MUA</div>
+              <div className="text-white mt-1">Hair & MUA</div>
             </div>
           </div>
         </div>
-        {/* CSS to hide scrollbar */}
+
+        {/* CSS to Hide Scrollbar */}
         <style>
           {`
-      .overflow-x-auto {
-        overflow-x: auto;
-        scrollbar-width: none; /* For Firefox */
-      }
-      .overflow-x-auto::-webkit-scrollbar {
-        display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
-      }
-    `}
+            .overflow-x-auto {
+              overflow-x: auto;
+              scrollbar-width: none;
+            }
+            .overflow-x-auto::-webkit-scrollbar {
+              display: none;
+            }
+            @media (min-width: 768px) {
+              .scroll-smooth {
+                scroll-behavior: smooth;
+              }
+            }
+          `}
         </style>
       </div>
-
-      {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
     </div>
   );
 }

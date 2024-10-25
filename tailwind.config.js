@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*"],
@@ -12,6 +11,9 @@ module.exports = {
       },
       container: {
         center: true,
+      },
+      screens: {
+        'lg': '1277px', // Custom breakpoint for screens less than 1277px
       },
     },
   },

@@ -1,13 +1,24 @@
 .hero {
-    background: url("/src/assests/wedding-photography-by-joseph-radhik-joseph-desktop\ 1.png") no-repeat center center;
-    /* background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat; */
-    background-size: 100% 100%; 
-    background-position: center ;
-    background-repeat: no-repeat;
-    height: 100vh; 
-    width: 100%;
+    background: url("../assests//wedding-photography-by-joseph-radhik-joseph-desktop\ 1.png") no-repeat center center; 
+    background-size: cover; /* Ensures the image covers the entire area */
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
 }
 
+@media (max-width: 1163px) {
+    .hero {
+        height: 70vh; /* Adjust height as needed for smaller screens */
+    }
+}
 
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 40vh; /* Further adjustment for very small screens */
+    }
+}
