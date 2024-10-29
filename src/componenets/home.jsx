@@ -11,7 +11,7 @@ function Home() {
 
   const images = [
     `${process.env.PUBLIC_URL}/images/image 8.png`,
-    `${process.env.PUBLIC_URL}/images/image 17.png`,
+    `${process.env.PUBLIC_URL}/images/image 8.png`,
     `${process.env.PUBLIC_URL}/images/image 19.png`,
   ];
 
@@ -332,80 +332,108 @@ function Home() {
         {/* start**************************************************************************************** */}
 
         <div
-          id="default-carousel"
-          className="relative mt-10 mx-4 sm:mx-12 mb-4"
-          data-carousel="static"
-        >
-          <style>
-            {`
-      @media (max-width: 640px) {
+  id="default-carousel"
+  className="relative mt-10 mx-4 sm:mx-12 mb-4"
+  data-carousel="static"
+>
+  <style>
+    {`
+      * {
+        box-sizing: border-box; /* Ensures consistent layout */
+      }
+
+      /* Responsive Styling for 430px and 375px */
+      @media (max-width: 430px) {
         .carousel-content {
-          padding-left: 10px;  /* Adjust left padding for mobile */
-          padding-right: 10px; /* Adjust right padding for mobile */
+          padding-left: 10px;
+          padding-right: 10px;
+          width: 100%; /* Take full width */
+          flex-direction: column; /* Stack elements vertically */
+          gap: 10px; /* Add spacing between items */
+        }
+
+        .carousel-img {
+          height: 180px;
+          width: 100%; /* Full width image on smaller screens */
+        }
+      }
+
+      @media (max-width: 375px) {
+        .carousel-content {
+          padding-left: 8px;
+          padding-right: 8px;
+          gap: 8px; /* Slightly smaller gap for compact screens */
+        }
+
+        .carousel-img {
+          height: 160px; /* Adjust image height for smaller screens */
         }
       }
     `}
-          </style>
+  </style>
 
-          {/* Carousel wrapper */}
-          <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-            {slides.map((slide, index) => (
-              <div
-                key={slide.id}
-                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-                  index === currentSlide ? "opacity-100" : "opacity-0"
-                }`}
-                data-carousel-item
-              >
-                <div
-                  className={`carousel-content box-content p-2 sm:p-6 w-full max-w-[90%] sm:max-w-[75%] mx-auto 
+  {/* Carousel Wrapper */}
+  <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+    {slides.map((slide, index) => (
+      <div
+        key={slide.id}
+        className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+          index === currentSlide ? "opacity-100" : "opacity-0"
+        }`}
+        data-carousel-item
+      >
+        <div
+          className={`carousel-content box-content p-4 sm:p-6 w-full max-w-[90%] sm:max-w-[75%] mx-auto 
             border-4 border-gray-300 border-white flex items-center justify-center 
-            ${window.innerWidth < 640 ? "flex-col gap-4" : "flex-row-reverse"} 
-            bg-red`}
-                  style={{ minWidth: "375px" }} // Ensure minimum width of 375px
-                >
-                  {/* Image */}
-                  <img
-                    src={slide.image}
-                    alt={`Slide ${slide.id}`}
-                    className="object-cover h-48 w-full sm:w-auto sm:h-[191px]"
-                  />
+            ${
+              window.innerWidth <= 430 ? "flex-col" : "flex-row-reverse"
+            }`}
+          style={{ minWidth: "320px" }}
+        >
+          {/* Image */}
+          <img
+            src={slide.image}
+            alt={`Slide ${slide.id}`}
+            className="carousel-img object-cover h-48 w-full sm:w-auto sm:h-[191px]"
+          />
 
-                  {/* Text (Hidden on Mobile) */}
-                  <div className="hidden sm:block w-full sm:w-1/2 text-gray-700 text-left">
-                    <p className="text-sm sm:text-md leading-normal h-16 overflow-hidden text-ellipsis">
-                      {slide.label && (
-                        <span className="text-white text-md sm:text-lg">
-                          Captured our special day beautifully, each moment
-                          immortalized with artistry. A true professional,
-                          grateful for the memories.
-                        </span>
-                      )}
-                    </p>
-                    <div className="mt-2 text-white">DAVID WARNER</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Slider indicators */}
-          <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                className={`w-3 h-3 rounded-full ${
-                  currentSlide === index ? "bg-yellow-500" : "bg-white"
-                }`}
-                aria-current={currentSlide === index}
-                aria-label={`Slide ${index + 1}`}
-                onClick={() => goToSlide(index)}
-              ></button>
-            ))}
+          {/* Text (Hidden on Mobile) */}
+          <div className="hidden sm:block w-full sm:w-1/2 text-gray-700 text-left">
+            <p className="text-sm sm:text-md leading-normal h-16 overflow-hidden text-ellipsis">
+              {slide.label && (
+                <span className="text-white text-md sm:text-lg">
+                  Captured our special day beautifully, each moment
+                  immortalized with artistry. A true professional, grateful for
+                  the memories.
+                </span>
+              )}
+            </p>
+            <div className="mt-2 text-white">DAVID WARNER</div>
           </div>
         </div>
       </div>
+    ))}
+  </div>
+
+  {/* Slider Indicators */}
+  <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+    {slides.map((_, index) => (
+      <button
+        key={index}
+        type="button"
+        className={`w-3 h-3 rounded-full ${
+          currentSlide === index ? "bg-yellow-500" : "bg-white"
+        }`}
+        aria-current={currentSlide === index}
+        aria-label={`Slide ${index + 1}`}
+        onClick={() => goToSlide(index)}
+      ></button>
+    ))}
+  </div>
+</div>
+
+
+</div>
 
       {/* end */}
 
@@ -457,92 +485,73 @@ function Home() {
       </div>
       {/* .................................................. */}
 
-      <div className="py-12" style={{ paddingLeft: "1rem" }}>
-        {/* Center the grid container */}
-        <div className="flex justify-center">
-          <div className="grid lg:grid-cols-2 gap-4">
-            {/* Large Images in the First Column */}
-            <div className="relative flex flex-col gap-6">
-              {/* First Image with Instagram Overlay */}
-              <div className="relative group">
-                <img
-                  src={process.env.PUBLIC_URL + "/images/image 17.png"}
-                  alt="Large Image 1"
-                  className="hover:scale-105 transition-transform duration-300 ease-in-out object-cover"
-                  style={{ width: "652px", height: "366px" }}
-                />
+      <div className="px-4 lg:px-8 py-12">
+  {/* Center the grid container */}
+  <div className="flex justify-center">
+    <div className="grid lg:grid-cols-2 gap-4">
+      {/* Large Images in the First Column */}
+      <div className="relative group"> {/* Added group class here */}
+        
+        {/* Large Image */}
+        <img
+          src={process.env.PUBLIC_URL + "/images/image 17.png"}
+          alt="Large Image 1"
+          className="object-cover"
+          style={{ width: "652px", height: "366px" }}
+        />
 
-                {/* Instagram Logo with Link */}
-                <div
-                  className="absolute opacity-0 group-hover:opacity-80 transition-all duration-300 
-                       flex justify-center items-center top-1/2 left-1/2 
-                       transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
-                  style={{ width: "104px", height: "104px" }}
-                >
-                  <a
-                    href="https://www.instagram.com/yourInstagramHandle" // Replace with your Instagram handle
-                    target="_blank" // Opens in a new tab
-                    rel="noopener noreferrer" // For security reasons
-                    className="block w-full h-full"
-                  >
-                    <img
-                      src={logoImage} // Using the imported logo
-                      alt="Instagram Logo"
-                      className="w-full h-full object-contain"
-                    />
-                  </a>
-                </div>
-              </div>
-
-              {/* Second Large Image */}
-              <img
-                src={process.env.PUBLIC_URL + "/images/image 5.png"}
-                alt="Large Image 2"
-                className="hover:scale-105 transition-transform duration-300 ease-in-out pt-6 object-cover"
-                style={{ width: "652px", height: "565px" }}
-              />
-            </div>
-
-            {/* Small Images in the Second Column */}
-            <div className="flex flex-col gap-4">
-              <div className="relative">
-                <img
-                  src={process.env.PUBLIC_URL + "/images/image 8.png"}
-                  alt="Small Image 1"
-                  className="hover:scale-105 transition-transform duration-300 ease-in-out object-cover"
-                  style={{ width: "442px", height: "442px" }}
-                />
-              </div>
-              <div className="relative">
-                <img
-                  src={process.env.PUBLIC_URL + "/images/image 19.png"}
-                  alt="Small Image 2"
-                  className="hover:scale-105 transition-transform duration-300 ease-in-out object-cover"
-                  style={{ width: "442px", height: "479px" }}
-                />
-              </div>
-            </div>
-          </div>
+        {/* Instagram Logo with Link */}
+        <div
+          className="absolute opacity-0 group-hover:opacity-80 transition-all duration-300 
+             flex justify-center items-center top-1/2 left-1/2 
+             transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+          style={{ width: "104px", height: "104px" }}
+        >
+          <a
+            href="https://www.instagram.com/yourInstagramHandle" // Replace with your Instagram handle
+            target="_blank" // Opens in a new tab
+            rel="noopener noreferrer" // For security reasons
+            className="block w-full h-full"
+          >
+            <img
+              src={logoImage} // Ensure this variable is correctly imported or defined
+              alt="Instagram Logo"
+              className="w-full h-full object-contain"
+            />
+          </a>
         </div>
 
-        {/* Inline Styles for Hover and Responsive Design */}
-        <style>
-          {`
-          @media (max-width: 768px) {
-            .grid {
-              grid-template-columns: 1fr; /* Stacks columns on small screens */
-            }
-            .relative {
-              margin-bottom: 1rem; /* Add spacing between stacked items */
-            }
-            img {
-              width: 100%; /* Full width on mobile */
-              height: auto; /* Maintain aspect ratio */
-            }
-          }
-        `}
-        </style>
+        {/* Second Large Image */}
+        <img
+          src={process.env.PUBLIC_URL + "/images/image 5.png"}
+          alt="Large Image"
+          className="w-full h-auto pt-6 object-cover"
+          style={{ width: "652px", height: "565px" }}
+        />
       </div>
+
+      {/* Small Images in the Second Column */}
+      <div className="flex flex-col gap-4">
+        <div className="relative">
+          <img
+            src={process.env.PUBLIC_URL + "/images/image 8.png"}
+            alt="Small Image 1"
+            className="w-full h-auto object-cover"
+            style={{ width: "442px", height: "442px" }}
+          />
+        </div>
+        <div className="relative">
+          <img
+            src={process.env.PUBLIC_URL + "/images/image 19.png"}
+            alt="Small Image 2"
+            className="w-full h-auto object-cover"
+            style={{ width: "442px", height: "479px" }}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   );
 }
