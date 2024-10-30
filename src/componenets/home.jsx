@@ -27,7 +27,10 @@ function Home() {
   const slides = [
     {
       id: 1,
-      image: `${process.env.PUBLIC_URL}/images/image 8.png`,
+      image: `${process.env.PUBLIC_URL}/images/image 17.png`,
+
+      image: `${process.env.PUBLIC_URL}/images/image 14.png`,
+
       label:
         "Captured our special day beautifully, each moment immortalized with artistry. A true professional grateful for the memorie1.",
     },
@@ -267,7 +270,7 @@ function Home() {
             <span className="relative inline-block mt-2">
               OF IMPRESSION
               <span
-                className="absolute left-1/2 transform -translate-x-1/2 bottom-[-12px] h-[2px] bg-[#FCFC04]"
+                className="absolute left-1/2 transform -translate-x-1/translate-x-[-40px] bottom-[-12px] h-[2px] bg-[#FCFC04]"
                 style={{ width: "67%" }}
               ></span>
             </span>
@@ -363,32 +366,29 @@ function Home() {
     `}
   </style>
 
-  {/* Carousel Wrapper */}
-  <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-    {slides.map((slide, index) => (
-      <div
-        key={slide.id}
-        className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-          index === currentSlide ? "opacity-100" : "opacity-0"
-        }`}
-        data-carousel-item
-      >
-        {/* <div
-          className={`
-            carousel-content box-content p-4 sm:p-6 w-full max-w-[90%] sm:max-w-[75%] mx-auto 
-            border-4 border-gray-300 flex items-center justify-center 
-            ${
-              window.innerWidth <= 430 ? "flex-col" : "flex-row-reverse"
-            }`}
-          // style={{ minWidth: "320px" }}
-        > */}
-        <div>
-          {/* Image */}
-          <img
-            src={slide.image}
-            alt={`Slide ${slide.id}`}
-            className="carousel-img object-cover h-48 w-full sm:w-auto sm:h-[191px]"
-          />
+          {/* Carousel wrapper */}
+          <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+            {slides.map((slide, index) => (
+              <div
+                key={slide.id}
+                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                  index === currentSlide ? "opacity-100" : "opacity-0"
+                }`}
+                data-carousel-item
+              >
+                <div
+                  className={`carousel-content box-content p-2 sm:p-6 w-full max-w-[90%] sm:max-w-[75%] mx-auto 
+            border-4 border-white flex items-center justify-center 
+            ${window.innerWidth < 640 ? "flex-col gap-4" : "flex-row-reverse"} 
+            bg-red`}
+                  style={{ minWidth: "375px" }} // Ensure minimum width of 375px
+                >
+                  {/* Image */}
+                  <img
+                    src={slide.image}
+                    alt={`Slide ${slide.id}`}
+                    className="object-cover h-48 w-full sm:w-auto sm:h-[191px]"
+                  />
 
           {/* Text (Hidden on Mobile) */}
           <div className="hidden sm:block w-full sm:w-1/2 text-gray-700 text-left">
