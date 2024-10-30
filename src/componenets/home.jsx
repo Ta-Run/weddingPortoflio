@@ -280,7 +280,7 @@ function Home() {
               OF IMPRESSION
               <span
                 className="absolute left-1/2 transform -translate-x-1/translate-x-[-40px] bottom-[-12px] h-[2px] bg-[#FCFC04]"
-                style={{ width: "67%" }}
+                style={{ width: "47%" }}
               ></span>
             </span>
           </h2>
