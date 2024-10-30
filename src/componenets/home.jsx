@@ -485,48 +485,48 @@ function Home() {
       </div>
       {/* .................................................. */}
 
-      <div className="px-4 lg:px-8 py-12">
+      <div className="py-6 px-4 sm:py-12">
   {/* Center the grid container */}
   <div className="flex justify-center">
-    <div className="grid lg:grid-cols-2 gap-4">
+    <div className="grid gap-4 lg:grid-cols-2">
       {/* Large Images in the First Column */}
-      <div className="relative group"> {/* Added group class here */}
-        
-        {/* Large Image */}
-        <img
-          src={process.env.PUBLIC_URL + "/images/image 17.png"}
-          alt="Large Image 1"
-          className="object-cover"
-          style={{ width: "652px", height: "366px" }}
-        />
-
-        {/* Instagram Logo with Link */}
-        <div
-          className="absolute opacity-0 group-hover:opacity-80 transition-all duration-300 
-             flex justify-center items-center top-1/2 left-1/2 
-             transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
-          style={{ width: "104px", height: "104px" }}
-        >
-          <a
-            href="https://www.instagram.com/yourInstagramHandle" // Replace with your Instagram handle
-            target="_blank" // Opens in a new tab
-            rel="noopener noreferrer" // For security reasons
-            className="block w-full h-full"
+      <div className="relative flex flex-col gap-4">
+        {/* First Image with Instagram Overlay */}
+        <div className="relative group">
+          <img
+            src={process.env.PUBLIC_URL + "/images/image 17.png"}
+            alt="Large Image 1"
+            className="object-cover w-full h-auto sm:w-[652px] sm:h-[366px]"
+            style={{ maxHeight: "366px" }} // Set a max height for the image
+          />
+          {/* Instagram Logo with Link */}
+          <div
+            className="absolute inset-0 flex justify-center items-center 
+                 opacity-0 group-hover:opacity-80 transition-opacity duration-300 
+                 cursor-pointer z-10"
           >
-            <img
-              src={logoImage} // Ensure this variable is correctly imported or defined
-              alt="Instagram Logo"
-              className="w-full h-full object-contain"
-            />
-          </a>
+            <a
+              href="https://www.instagram.com/yourInstagramHandle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+              style={{ width: "50px", height: "50px" }} // Set fixed size for the logo
+            >
+              <img
+                src={logoImage}
+                alt="Instagram Logo"
+                className="w-full h-full object-contain" // Responsive image
+              />
+            </a>
+          </div>
         </div>
 
         {/* Second Large Image */}
         <img
           src={process.env.PUBLIC_URL + "/images/image 5.png"}
-          alt="Large Image"
-          className="w-full h-auto pt-6 object-cover"
-          style={{ width: "652px", height: "565px" }}
+          alt="Large Image 2"
+          className="object-cover w-full h-auto sm:w-[652px] sm:h-[565px]"
+          style={{ maxHeight: "565px" }} // Set a max height for the image
         />
       </div>
 
@@ -536,22 +536,27 @@ function Home() {
           <img
             src={process.env.PUBLIC_URL + "/images/image 8.png"}
             alt="Small Image 1"
-            className="w-full h-auto object-cover"
-            style={{ width: "442px", height: "442px" }}
+            className="object-cover w-full h-auto sm:w-[442px] sm:h-[442px]"
+            style={{ maxHeight: "442px" }} // Set a max height for the image
           />
         </div>
         <div className="relative">
           <img
             src={process.env.PUBLIC_URL + "/images/image 19.png"}
             alt="Small Image 2"
-            className="w-full h-auto object-cover"
-            style={{ width: "442px", height: "479px" }}
+            className="object-cover w-full h-auto sm:w-[442px] sm:h-[479px]"
+            style={{ maxHeight: "479px" }} // Set a max height for the image
           />
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
     </div>
   );
 }
