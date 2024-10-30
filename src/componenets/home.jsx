@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./home.css";
 import logoImage from "../assests/Vector.png";
+import { useNavigate } from "react-router-dom";
+
 
 function Home() {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
@@ -71,16 +74,16 @@ function Home() {
         >
           <div className="flex flex-col items-center">
             <h1
-              className="text-white font-bold text-7xl"
+              className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
               style={{
                 fontFamily: "Arial, sans-serif",
-                lineHeight: "1.2", // Increase line height for more space between lines
-                marginTop: "85px", // Shifts the entire h1 down
+                lineHeight: "1.2",
+                marginTop: "20px", // Smaller top margin for mobile
               }}
             >
               SOM
               <span className="inline-block mx-2"></span>
-              <div className="inline w-[900px] mx-auto mt-4 border-b-4 border-[#FCFC04]"></div>
+              <div className="inline w-full sm:w-[400px] md:w-[600px] lg:w-[900px] mx-auto mt-4 border-b-4 border-[#FCFC04]"></div>
               <span className="inline-block mx-2"></span>
               SHARMA
             </h1>
@@ -209,7 +212,9 @@ function Home() {
         </div>
 
         <div className="flex justify-center">
-          <button className="lg:w-[233px] lg:h-[74px] border border-[#FCFC04] text-center text-lg font-semibold text-[#FCFC04] bg-transparent hover:bg-[#FCFC04] hover:text-black transition-colors my-20">
+          <button className="lg:w-[233px] lg:h-[74px] border border-[#FCFC04] text-center text-lg font-semibold text-[#FCFC04] bg-transparent hover:bg-[#FCFC04] hover:text-black transition-colors my-20"
+            onClick={() => navigate("/portfolio")}
+          >
             View All
           </button>
         </div>
@@ -225,7 +230,9 @@ function Home() {
 
         <div className="px-4 md:px-8 lg:px-16 py-12">
           {/* Grid Container */}
-          <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 sm:gap-20">
+          <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 sm:gap-20 cursor-pointer"
+            onClick={() => navigate("/service")}
+          >
             {Array(4)
               .fill()
               .map((_, index) => (
@@ -256,7 +263,9 @@ function Home() {
 
         {/* View All Button */}
         <div className="flex justify-center mt-8">
-          <button className="lg:w-[233px] lg:h-[74px] border border-[#FCFC04] text-center text-lg font-semibold text-[#FCFC04] bg-transparent hover:bg-[#FCFC04] hover:text-black transition-colors">
+          <button className="lg:w-[233px] lg:h-[74px] border border-[#FCFC04] text-center text-lg font-semibold text-[#FCFC04] bg-transparent hover:bg-[#FCFC04] hover:text-black transition-colors"
+            onClick={() => navigate("/service")}
+          >
             View All
           </button>
         </div>
@@ -356,18 +365,17 @@ function Home() {
         .carousel-content {
           padding-left: 8px;
           padding-right: 8px;
-          gap: 8px; /* Slightly smaller gap for compact screens */
+          gap: 8px; 
         }
 
         .carousel-img {
-          height: 160px; /* Adjust image height for smaller screens */
+          height: 160px;
         }
       }
     `}
           </style>
-
           {/* Carousel wrapper */}
-          <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+          <div className="  overflow-hidden relative h-56 rounded-lg sm:h-64  xl:h-80 2xl:h-96">
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
@@ -380,16 +388,13 @@ function Home() {
             border-4 border-white flex items-center justify-center 
             ${window.innerWidth < 640 ? "flex-col gap-4" : "flex-row-reverse"} 
             bg-red`}
-                  style={{ minWidth: "375px" }} // Ensure minimum width of 375px
+                  style={{ minWidth: "375px" }}
                 >
-                  {/* Image */}
                   <img
                     src={slide.image}
                     alt={`Slide ${slide.id}`}
                     className="object-cover h-48 w-full sm:w-auto sm:h-[191px]"
                   />
-
-                  {/* Text (Hidden on Mobile) */}
                   <div className="hidden sm:block w-full sm:w-1/2 text-gray-700 text-left">
                     <p className="text-sm sm:text-md leading-normal h-16 overflow-hidden text-ellipsis">
                       {slide.label && (
@@ -406,7 +411,6 @@ function Home() {
               </div>
             ))}
           </div>
-
           {/* Slider Indicators */}
           <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
             {slides.map((_, index) => (
@@ -422,8 +426,6 @@ function Home() {
             ))}
           </div>
         </div>
-
-
       </div>
 
       {/* end */}
@@ -474,27 +476,26 @@ function Home() {
           </span>
         </h2>
       </div>
-      {/* .................................................. */}
 
-      <div className="py-6 px-4 sm:py-12">
+      <div className=" sm:py-12">
         {/* Center the grid container */}
-        <div className="flex justify-center">
-          <div className="grid gap-4 lg:grid-cols-2">
+        <div className=" flex justify-center">
+          <div className="grid gap-4 lg:grid-cols-2 max-w-screen-lg">
             {/* Large Images in the First Column */}
-            <div className="relative flex flex-col gap-4">
+            <div className="relative flex flex-col gap-4 items-center">
               {/* First Image with Instagram Overlay */}
               <div className="relative group">
                 <img
                   src={process.env.PUBLIC_URL + "/images/image 17.png"}
                   alt="Large Image 1"
-                  className="object-cover w-full h-auto sm:w-[652px] sm:h-[366px]"
+                  className="object-cover w-full h-auto sm:max-w-[652px] sm:h-[366px]"
                   style={{ maxHeight: "366px" }} // Set a max height for the image
                 />
                 {/* Instagram Logo with Link */}
                 <div
                   className="absolute inset-0 flex justify-center items-center 
-                 opacity-0 group-hover:opacity-80 transition-opacity duration-300 
-                 cursor-pointer z-10"
+              opacity-0 group-hover:opacity-80 transition-opacity duration-300 
+              cursor-pointer z-10"
                 >
                   <a
                     href="https://www.instagram.com/yourInstagramHandle"
@@ -516,18 +517,18 @@ function Home() {
               <img
                 src={process.env.PUBLIC_URL + "/images/image 5.png"}
                 alt="Large Image 2"
-                className="object-cover w-full h-auto sm:w-[652px] sm:h-[565px]"
+                className="object-cover w-full h-auto sm:max-w-[652px] sm:h-[565px]"
                 style={{ maxHeight: "565px" }} // Set a max height for the image
               />
             </div>
 
             {/* Small Images in the Second Column */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 ">
               <div className="relative">
                 <img
                   src={process.env.PUBLIC_URL + "/images/image 8.png"}
                   alt="Small Image 1"
-                  className="object-cover w-full h-auto sm:w-[442px] sm:h-[442px]"
+                  className="object-cover w-full h-auto sm:max-w-[442px] sm:h-[442px]"
                   style={{ maxHeight: "442px" }} // Set a max height for the image
                 />
               </div>
@@ -535,14 +536,15 @@ function Home() {
                 <img
                   src={process.env.PUBLIC_URL + "/images/image 19.png"}
                   alt="Small Image 2"
-                  className="object-cover w-full h-auto sm:w-[442px] sm:h-[479px]"
-                  style={{ maxHeight: "479px" }} // Set a max height for the image
+                  className="object-cover w-full h-auto sm:max-w-[442px] sm:h-[479px]"
+
                 />
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   );
 }
