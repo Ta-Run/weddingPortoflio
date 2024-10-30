@@ -326,12 +326,12 @@ function Home() {
           ></span>
         </div>
         <div
-  id="default-carousel"
-  className="relative mt-10 mx-4 sm:mx-12 mb-4"
-  data-carousel="static"
->
-  <style>
-    {`
+          id="default-carousel"
+          className="relative mt-10 mx-4 sm:mx-12 mb-4"
+          data-carousel="static"
+        >
+          <style>
+            {`
       * {
         box-sizing: border-box; /* Ensures consistent layout */
       }
@@ -364,16 +364,15 @@ function Home() {
         }
       }
     `}
-  </style>
+          </style>
 
           {/* Carousel wrapper */}
           <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
-                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-                  index === currentSlide ? "opacity-100" : "opacity-0"
-                }`}
+                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"
+                  }`}
                 data-carousel-item
               >
                 <div
@@ -390,43 +389,42 @@ function Home() {
                     className="object-cover h-48 w-full sm:w-auto sm:h-[191px]"
                   />
 
-          {/* Text (Hidden on Mobile) */}
-          <div className="hidden sm:block w-full sm:w-1/2 text-gray-700 text-left">
-            <p className="text-sm sm:text-md leading-normal h-16 overflow-hidden text-ellipsis">
-              {slide.label && (
-                <span className="text-white text-md sm:text-lg">
-                  Captured our special day beautifully, each moment
-                  immortalized with artistry. A true professional, grateful for
-                  the memories.
-                </span>
-              )}
-            </p>
-            <div className="mt-2 text-white">DAVID WARNER</div>
+                  {/* Text (Hidden on Mobile) */}
+                  <div className="hidden sm:block w-full sm:w-1/2 text-gray-700 text-left">
+                    <p className="text-sm sm:text-md leading-normal h-16 overflow-hidden text-ellipsis">
+                      {slide.label && (
+                        <span className="text-white text-md sm:text-lg">
+                          Captured our special day beautifully, each moment
+                          immortalized with artistry. A true professional, grateful for
+                          the memories.
+                        </span>
+                      )}
+                    </p>
+                    <div className="mt-2 text-white">DAVID WARNER</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Slider Indicators */}
+          <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`w-3 h-3 rounded-full ${currentSlide === index ? "bg-yellow-500" : "bg-white"
+                  }`}
+                aria-current={currentSlide === index}
+                aria-label={`Slide ${index + 1}`}
+                onClick={() => goToSlide(index)}
+              ></button>
+            ))}
           </div>
         </div>
+
+
       </div>
-    ))}
-  </div>
-
-  {/* Slider Indicators */}
-  <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-    {slides.map((_, index) => (
-      <button
-        key={index}
-        type="button"
-        className={`w-3 h-3 rounded-full ${
-          currentSlide === index ? "bg-yellow-500" : "bg-white"
-        }`}
-        aria-current={currentSlide === index}
-        aria-label={`Slide ${index + 1}`}
-        onClick={() => goToSlide(index)}
-      ></button>
-    ))}
-  </div>
-</div>
-
-
-</div>
 
       {/* end */}
 
@@ -479,77 +477,72 @@ function Home() {
       {/* .................................................. */}
 
       <div className="py-6 px-4 sm:py-12">
-  {/* Center the grid container */}
-  <div className="flex justify-center">
-    <div className="grid gap-4 lg:grid-cols-2">
-      {/* Large Images in the First Column */}
-      <div className="relative flex flex-col gap-4">
-        {/* First Image with Instagram Overlay */}
-        <div className="relative group">
-          <img
-            src={process.env.PUBLIC_URL + "/images/image 17.png"}
-            alt="Large Image 1"
-            className="object-cover w-full h-auto sm:w-[652px] sm:h-[366px]"
-            style={{ maxHeight: "366px" }} // Set a max height for the image
-          />
-          {/* Instagram Logo with Link */}
-          <div
-            className="absolute inset-0 flex justify-center items-center 
+        {/* Center the grid container */}
+        <div className="flex justify-center">
+          <div className="grid gap-4 lg:grid-cols-2">
+            {/* Large Images in the First Column */}
+            <div className="relative flex flex-col gap-4">
+              {/* First Image with Instagram Overlay */}
+              <div className="relative group">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/image 17.png"}
+                  alt="Large Image 1"
+                  className="object-cover w-full h-auto sm:w-[652px] sm:h-[366px]"
+                  style={{ maxHeight: "366px" }} // Set a max height for the image
+                />
+                {/* Instagram Logo with Link */}
+                <div
+                  className="absolute inset-0 flex justify-center items-center 
                  opacity-0 group-hover:opacity-80 transition-opacity duration-300 
                  cursor-pointer z-10"
-          >
-            <a
-              href="https://www.instagram.com/yourInstagramHandle"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-              style={{ width: "50px", height: "50px" }} // Set fixed size for the logo
-            >
+                >
+                  <a
+                    href="https://www.instagram.com/yourInstagramHandle"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                    style={{ width: "50px", height: "50px" }} // Set fixed size for the logo
+                  >
+                    <img
+                      src={logoImage}
+                      alt="Instagram Logo"
+                      className="w-full h-full object-contain" // Responsive image
+                    />
+                  </a>
+                </div>
+              </div>
+
+              {/* Second Large Image */}
               <img
-                src={logoImage}
-                alt="Instagram Logo"
-                className="w-full h-full object-contain" // Responsive image
+                src={process.env.PUBLIC_URL + "/images/image 5.png"}
+                alt="Large Image 2"
+                className="object-cover w-full h-auto sm:w-[652px] sm:h-[565px]"
+                style={{ maxHeight: "565px" }} // Set a max height for the image
               />
-            </a>
+            </div>
+
+            {/* Small Images in the Second Column */}
+            <div className="flex flex-col gap-4">
+              <div className="relative">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/image 8.png"}
+                  alt="Small Image 1"
+                  className="object-cover w-full h-auto sm:w-[442px] sm:h-[442px]"
+                  style={{ maxHeight: "442px" }} // Set a max height for the image
+                />
+              </div>
+              <div className="relative">
+                <img
+                  src={process.env.PUBLIC_URL + "/images/image 19.png"}
+                  alt="Small Image 2"
+                  className="object-cover w-full h-auto sm:w-[442px] sm:h-[479px]"
+                  style={{ maxHeight: "479px" }} // Set a max height for the image
+                />
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* Second Large Image */}
-        <img
-          src={process.env.PUBLIC_URL + "/images/image 5.png"}
-          alt="Large Image 2"
-          className="object-cover w-full h-auto sm:w-[652px] sm:h-[565px]"
-          style={{ maxHeight: "565px" }} // Set a max height for the image
-        />
       </div>
-
-      {/* Small Images in the Second Column */}
-      <div className="flex flex-col gap-4">
-        <div className="relative">
-          <img
-            src={process.env.PUBLIC_URL + "/images/image 8.png"}
-            alt="Small Image 1"
-            className="object-cover w-full h-auto sm:w-[442px] sm:h-[442px]"
-            style={{ maxHeight: "442px" }} // Set a max height for the image
-          />
-        </div>
-        <div className="relative">
-          <img
-            src={process.env.PUBLIC_URL + "/images/image 19.png"}
-            alt="Small Image 2"
-            className="object-cover w-full h-auto sm:w-[442px] sm:h-[479px]"
-            style={{ maxHeight: "479px" }} // Set a max height for the image
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
     </div>
   );
 }
