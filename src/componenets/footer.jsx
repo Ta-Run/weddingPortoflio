@@ -30,7 +30,7 @@ const Footer = forwardRef((props, ref) => {
       {/* Watermark as background */}
       <div className="absolute inset-0 h-full w-full overflow-hidden">
         <div
-          className="absolute transform rotate-[-6deg]"
+          className="hidden md:block absolute transform rotate-[-6deg]" // Show only on desktop view
           style={{
             width: "450px",
             height: "612px",
@@ -80,10 +80,9 @@ const Footer = forwardRef((props, ref) => {
       </div>
 
       {/* Centered Yellow Line */}
-     <div className="relative z-20 flex justify-center mt-4">
-  <div className="border-t-2 border-yellow-400 w-[1218px] mt-2 mx-auto md:mx-0 md:mr-8"></div>
-</div>
-
+      <div className="relative z-20 flex justify-center mt-4">
+        <div className="border-t-2 border-yellow-400 w-[1218px] mt-2 mx-auto md:mx-0 md:mr-8"></div>
+      </div>
 
       {/* Buttons Layout Below the Yellow Line */}
       <div className="relative z-10 container mx-auto p-4 flex flex-col sm:flex-row justify-between mt-4">
