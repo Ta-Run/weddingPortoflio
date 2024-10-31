@@ -25,7 +25,7 @@ const Footer = forwardRef((props, ref) => {
   return (
     <footer
       ref={ref}
-      className="relative w-full text-white mt-40 bg-black overflow-hidden"
+      className="relative w-full text-white mt-auto "
     >
       {/* Watermark as background */}
       <div className="absolute inset-0 h-full w-full overflow-hidden">
@@ -45,9 +45,9 @@ const Footer = forwardRef((props, ref) => {
       </div>
 
       {/* Footer Content */}
-      <div className="relative z-10 container mx-auto p-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+      <div className="relative z-10 container mx-auto p-4 flex flex-col md:flex-row  items-center text-center md:text-left">
         {/* Left Section */}
-        <div className="mb-4 md:mb-0 md:pl-32 w-full md:w-auto">
+        <div className=" w-full md:w-auto  flex-auto">
           <h1 className="font-bold text-5xl leading-[52px] tracking-[0.17em]">
             RISHABH SHARMA
           </h1>
@@ -61,7 +61,7 @@ const Footer = forwardRef((props, ref) => {
         </div>
 
         {/* Navigation Links */}
-        <div className="flex flex-col items-center md:items-end justify-center pr-0 md:pr-40 w-full md:w-auto">
+        <div className="flex flex-col items-center md:items-end justify-center  w-full md:w-auto">
           <ul className="list-none">
             {routes
               .filter((route) => route.path !== activePath) // Exclude the active page

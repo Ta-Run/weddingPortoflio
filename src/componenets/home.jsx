@@ -434,67 +434,58 @@ function Home() {
         </h2>
       </div>
 
-
-      <div className="sm:py-12">
-        {/* Center the grid container */}
-        <div className="flex justify-center">
-          <div className="grid gap-4 lg:grid-cols-2 max-w-screen-lg w-full px-4 md:px-0">
-            {/* Large Images in the First Column */}
-            <div className="flex flex-col gap-4 items-center">
-              {/* First Image with Instagram Overlay */}
-              <div className="relative group">
+      <div className="flex justify-center px-4 md:px-0">
+        <div className="grid gap-4 grid-cols-2 max-w-screen-lg w-full items-stretch">
+          <div className="flex flex-col gap-4 items-center">
+            <div className="relative group w-full h-[366px]">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/image 17.png`}
+                alt="Large Image 1"
+                className="object-cover w-full h-full"
+              />
+              <a
+                href="https://www.instagram.com/yourInstagramHandle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+              >
                 <img
-                  src={`${process.env.PUBLIC_URL}/images/image 17.png`}
-                  alt="Large Image 1"
-                  className="object-cover w-full h-auto max-w-full sm:max-w-[652px] sm:h-[366px]"
+                  src={logoImage}
+                  alt="Instagram Logo"
+                  className="w-12 h-12 object-contain"
                 />
-                {/* Instagram Overlay with Logo */}
-                <a
-                  href="https://www.instagram.com/yourInstagramHandle"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-80 transition-opacity duration-300 cursor-pointer"
-                >
-                  <img
-                    src={logoImage}
-                    alt="Instagram Logo"
-                    className="w-12 h-12 object-contain"
-                  />
-                </a>
-              </div>
+              </a>
+            </div>
 
-              {/* Second Large Image */}
+            {/* Second Large Image */}
+            <div className="w-full h-[565px]">
               <img
                 src={`${process.env.PUBLIC_URL}/images/image 5.png`}
                 alt="Large Image 2"
-                className="object-cover w-full h-auto max-w-full sm:max-w-[652px] sm:h-[565px]"
+                className="object-cover w-full h-full"
               />
             </div>
+          </div>
 
-            {/* Small Images in the Second Column */}
-            <div className="flex flex-col gap-4">
-              {/* Small Image 1 */}
-              <div className="relative">
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/image 8.png`}
-                  alt="Small Image 1"
-                  className="object-cover w-full h-auto max-w-full sm:max-w-[442px] sm:h-[442px]"
-                />
-              </div>
-
-              {/* Small Image 2 */}
-              <div className="relative">
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/image 19.png`}
-                  alt="Small Image 2"
-                  className="object-cover w-full h-auto max-w-full sm:max-w-[442px] sm:h-[479px]"
-                />
-              </div>
+          {/* Right Column */}
+          <div className="flex flex-col gap-4 items-center">
+            <div className="w-full h-[442px]">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/image 8.png`}
+                alt="Small Image 1"
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div className="w-full h-[479px]">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/image 19.png`}
+                alt="Small Image 2"
+                className="object-cover w-full h-full"
+              />
             </div>
           </div>
         </div>
       </div>
-
     </div>
   );
 }

@@ -28,10 +28,11 @@ const Portfolio = () => {
         {/* Heading */}
         <div className="relative text-center mb-8">
           <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px] mt-12">
-            PORTFOLIO
+            PORT
+            <span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
+              FOLIO
+            </span>
           </h2>
-          {/* Underline */}
-          <div className="w-[159px] mx-auto mt-2 border-t-2 border-[#FCFC04]"></div>
         </div>
 
         {/* Image Slider */}
@@ -53,10 +54,10 @@ const Portfolio = () => {
                 strokeLinejoin="round"
                 strokeWidth={2}
                 d="M15 19l-7-7 7-7"
-              /> 
+              />
             </svg>
           </button>
-                                           
+
           {/* Slider Content */}
           <div className="flex justify-center items-center space-x-4">
             {/* Left Image */}
@@ -114,9 +115,12 @@ const Portfolio = () => {
       <div className="text-white py-12">
         <div className="relative text-center pt-20 mb-6">
           <h2 className="font-raleway lg:text-[41.89px] font-extrabold lg:leading-[49.18px]">
-            WEDDING
+            WED
+            <span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
+            DING
+          </span>
           </h2>
-          <div className="w-[159px] mx-auto mt-2 border-t-2 border-[#FCFC04]"></div>
+           
         </div>
 
         <div className="px-4 lg:px-8 py-12">
@@ -171,9 +175,11 @@ const Portfolio = () => {
       <div className="text-white py-12">
         <div className="relative text-center pt-20 mb-6">
           <h2 className="font-raleway lg:text-[41.89px] font-extrabold lg:leading-[49.18px]">
-            FASHION
+            FAS
+            <span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
+            HION
+          </span>
           </h2>
-          <div className="w-[159px] mx-auto mt-2 border-t-2 border-[#FCFC04]"></div>
         </div>
 
         <div className="px-4 lg:px-8 py-12">
@@ -218,7 +224,7 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
-        
+
       </div>
 
     </div>

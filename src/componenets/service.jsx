@@ -6,10 +6,13 @@ const Service = () => {
       {/* Title Section */}
       <div className="relative text-center mb-16 mt-20 flex flex-col items-center">
         <h2 className="font-raleway text-[41.89px] font-extrabold leading-[49.18px] text-white">
-          SERVICE
+          SER
+          <span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
+          VICE
+          </span>
         </h2>
-        <div className="w-[159px] mt-2 border-t-2 border-[#FCFC04] ml-4"></div>
-      </div>
+        </div>
+        
 
       <div className="px-4 md:px-8 lg:px-16 py-12">
         {/* Grid Container */}
