@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Home() {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const images = [
     `${process.env.PUBLIC_URL}/images/image 19.png`,
@@ -24,16 +25,11 @@ function Home() {
     );
   };
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   // Array of image slides
   const slides = [
     {
       id: 1,
       image: `${process.env.PUBLIC_URL}/images/image 17.png`,
-
-      image: `${process.env.PUBLIC_URL}/images/image 14.png`,
-
       label:
         "Captured our special day beautifully, each moment immortalized with artistry. A true professional grateful for the memorie1.",
     },
@@ -57,76 +53,52 @@ function Home() {
   };
   return (
     <div>
-      <div className="relative w-full h-screen flex hero p-4">
-        <span className="absolute left-20 top-12  box-border h-16 w-16   border-t-8 border-l-8"></span>
+      <div className="relative w-full h-screen flex hero object-cover object-center p-4">
+        <span className="absolute left-5 sm:left-20 top-5 sm:top-12 box-border h-8 w-8 sm:h-16 sm:w-16 border-t-4 sm:border-t-8 border-l-4 sm:border-l-8"></span>
 
-        {/* <span className="absolute box-border h-16 w-16 top-24 left-20 border-t-8 border-l-8"></span> */}
-
-        {/* Heading and Subheading */}
-        <div
-          className="  inset-x-0 top-[20%] mx-auto justify-center text-center  p-4"
-          style={{
-            fontFamily: "Raleway",
-            fontSize: "48px",
-            fontWeight: "1000",
-            lineHeight: "78px",
-          }}
-        >
+        <div className="inset-x-0 top-[20%] mx-auto text-center p-4" style={{ fontFamily: "Raleway", lineHeight: "78px" }}>
           <div className="flex flex-col items-center">
             <h1
-              className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
-              style={{
-                fontFamily: "Arial, sans-serif",
-                lineHeight: "1.2",
-                marginTop: "20px", // Smaller top margin for mobile
-              }}
+              className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+              style={{ lineHeight: "1.2", fontFamily: "Arial, sans-serif" }}
             >
               SOM
-              <span className="inline-block mx-2"></span>
-              <div className="inline w-full sm:w-[400px] md:w-[600px] lg:w-[900px] mx-auto mt-4 border-b-4 border-[#FCFC04]"></div>
-              <span className="inline-block mx-2"></span>
-              SHARMA
+
+              {/* <div className="inline-block sm:w-[200px] md:w-[400px] lg:w-[200px] border-b-4 border-[#FCFC04]"> */}
+
+              <span className="inline-block mx-2">
+                SHARMA
+              </span>
+              {/* </div> */}
+
+
             </h1>
 
-            <div
-              style={{
-                width: "159px", // Match the width of the upper line
-                height: "0px",
-                border: "2px solid #FCFC04",
-                margin: "30px 0", // Vertical margin to create space between elements
-              }}
-            ></div>
+            {/* <div className="w-[100px] sm:w-[159px] border-t-2 border-[#FCFC04] my-4"></div> */}
 
-            <div className="flex justify-center">
-              <div className="flex justify-center">
-                <p
-                  className="text-white"
-                  style={{
-                    width: "100%", // Ensure the container is wide enough
-                    maxWidth: "500px", // Set a max width to control it
-                    fontFamily: "Raleway, sans-serif",
-                    fontSize: "15px",
-                    fontWeight: "500",
-                    lineHeight: "18.78px",
-                    letterSpacing: "0.2em", // Increase letter spacing for more width
-                    textAlign: "center", // Center the text horizontally
-                    whiteSpace: "nowrap", // Prevent text from wrapping to the next line
-                    transform: "scaleX(1.1)", // Adjust width with scaling
-                    transformOrigin: "center", // Scale from the center
-                    marginLeft: "-357px",
-                  }}
-                >
-                  PROFESSIONAL PHOTOGRAPHER
-                </p>
-              </div>
-            </div>
+            <p
+              className="text-white text-xs sm:text-sm font-medium"
+              style={{
+                fontFamily: "Raleway, sans-serif",
+                letterSpacing: "0.2em",
+                textAlign: "center",
+                marginTop: "20px",
+                whiteSpace: "nowrap",
+                transform: "scaleX(1.1)",
+                transformOrigin: "center",
+              }}
+            >
+              PROFESSIONAL PHOTOGRAPHER
+            </p>
           </div>
         </div>
-        <span className="absolute right-20 bottom-12 box-border h-16 w-16 border-b-8 border-r-8"></span>
+
+        <span className="absolute right-5 sm:right-20 bottom-5 sm:bottom-12 box-border h-8 w-8 sm:h-16 sm:w-16 border-b-4 sm:border-b-8 border-r-4 sm:border-r-8"></span>
       </div>
 
+
       <div className="text-white py-4">
-        {/* Heading */}
+
         <div className="relative text-center mb-8">
           <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px]">
             PORT
@@ -161,33 +133,34 @@ function Home() {
 
           {/* Slider Content */}
           <div className="flex justify-center items-center space-x-4">
-            {/* Left Image */}
+            {/* Left Image - Only visible on large screens */}
             <div className="hidden lg:block transition-transform duration-300 ease-in-out">
               <img
                 src={images[(currentIndex + images.length - 1) % images.length]}
                 alt="Previous Slide"
-                className="w-64 h-64 object-cover rounded-md opacity-70"
+                className="w-20 h-20 md:w-32 md:h-32 lg:w-64 lg:h-64 object-cover rounded-md opacity-70"
               />
             </div>
 
-            {/* Center Image */}
+            {/* Center Image - Adjusts size for different screen widths */}
             <div className="transition-transform duration-300 ease-in-out">
               <img
                 src={images[currentIndex]}
                 alt="Current Slide"
-                className="md:w-80 md:h-80 object-cover rounded-lg shadow-lg transform scale-110"
+                className="w-40 h-40 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover rounded-lg shadow-lg transform scale-110"
               />
             </div>
 
-            {/* Right Image */}
+            {/* Right Image - Only visible on large screens */}
             <div className="hidden lg:block transition-transform duration-300 ease-in-out">
               <img
                 src={images[(currentIndex + 1) % images.length]}
                 alt="Next Slide"
-                className="w-64 h-64 object-cover rounded-md opacity-70"
+                className="w-20 h-20 md:w-32 md:h-32 lg:w-64 lg:h-64 object-cover rounded-md opacity-70"
               />
             </div>
           </div>
+
 
           {/* Next Arrow */}
           <button
@@ -219,6 +192,8 @@ function Home() {
           </button>
         </div>
 
+
+        {/* service */}
         <div className="relative text-center mt-8">
           <h2 className="font-raleway text-[41.89px] font-extrabold leading-[49.18px] text-white">
             SER
@@ -260,8 +235,6 @@ function Home() {
               ))}
           </div>
         </div>
-
-        {/* View All Button */}
         <div className="flex justify-center mt-8">
           <button className="lg:w-[233px] lg:h-[74px] border border-[#FCFC04] text-center text-lg font-semibold text-[#FCFC04] bg-transparent hover:bg-[#FCFC04] hover:text-black transition-colors"
             onClick={() => navigate("/service")}
@@ -270,16 +243,17 @@ function Home() {
           </button>
         </div>
 
-        <div className="relative text-center pt-20 mb-8">
+        {/*  number of merrided*/}
+        <div className="relative text-center pt-10 sm:pt-20 mb-4 sm:mb-8">
           <h2
-            className="font-raleway text-[28px] md:text-[41.89px] font-bold text-white"
+            className="font-raleway text-[20px] sm:text-[28px] md:text-[41.89px] font-bold text-white"
             style={{ fontWeight: 700, lineHeight: 1 }}
           >
             NUMBER{" "}
-            <span className="relative inline-block mt-2">
+            <span className="relative inline-block mt-1 sm:mt-2">
               OF IMPRESSION
               <span
-                className="absolute left-1/2 transform -translate-x-1/translate-x-[-40px] bottom-[-12px] h-[2px] bg-[#FCFC04]"
+                className="absolute left-1/2 transform -translate-x-1/2 bottom-[-4px] sm:bottom-[-6px] md:bottom-[-12px] h-[2px] bg-[#FCFC04]"
                 style={{ width: "47%" }}
               ></span>
             </span>
@@ -309,129 +283,111 @@ function Home() {
               150+
             </div>
             <div
-              className="text-white font-arial text-lg md:text-[25.89px] font-medium leading-[1.2] tracking-[0.05em] whitespace-nowrap"
+              className="text-white font-arial text-base sm:text-lg md:text-[25.89px] font-medium leading-tight tracking-[0.05em] whitespace-nowrap px-4 sm:px-0"
               style={{
                 marginLeft: "22px",
                 marginRight: "0",
-                paddingLeft: "-2px",
-                paddingRight: "10px",
               }}
             >
-              WEDDINGS COMPLETED SUCCESSFULLY
+              WEDDINGS COMPLETED
             </div>
           </div>
         </div>
 
+        {/* testimonial */}
         <div className="relative text-center py-10">
           <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px] text-white mt-12 mb-0">
             TESTIMONIAL
           </h2>
-          <span
-            className="
+          <span className="
     w-[80px] sm:w-[100px] md:w-[120px] lg:w-[140px] 
     mx-auto mt-2 border-b-2 border-[#FCFC04] 
     block ml-auto sm:ml-[51%]
-  "
-          ></span>
-        </div>
-        <div
-          id="default-carousel"
-          className="relative mt-10 mx-4 sm:mx-12 mb-4"
-          data-carousel="static"
-        >
-          <style>
-            {`
-      * {
-        box-sizing: border-box; /* Ensures consistent layout */
-      }
-
-      /* Responsive Styling for 430px and 375px */
-      @media (max-width: 430px) {
-        .carousel-content {
-          padding-left: 10px;
-          padding-right: 10px;
-          width: 100%; /* Take full width */
-          flex-direction: column; /* Stack elements vertically */
-          gap: 10px; /* Add spacing between items */
-        }
-
-        .carousel-img {
-          height: 180px;
-          width: 100%; /* Full width image on smaller screens */
-        }
-      }
-
-      @media (max-width: 375px) {
-        .carousel-content {
-          padding-left: 8px;
-          padding-right: 8px;
-          gap: 8px; 
-        }
-
-        .carousel-img {
-          height: 160px;
-        }
-      }
-    `}
-          </style>
-          {/* Carousel wrapper */}
-          <div className="  overflow-hidden relative h-56 rounded-lg sm:h-64  xl:h-80 2xl:h-96">
-            {slides.map((slide, index) => (
-              <div
-                key={slide.id}
-                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"
-                  }`}
-                data-carousel-item
-              >
-                <div
-                  className={`carousel-content box-content p-2 sm:p-6 w-full max-w-[90%] sm:max-w-[75%] mx-auto 
-            border-4 border-white flex items-center justify-center 
-            ${window.innerWidth < 640 ? "flex-col gap-4" : "flex-row-reverse"} 
-            bg-red`}
-                  style={{ minWidth: "375px" }}
-                >
-                  <img
-                    src={slide.image}
-                    alt={`Slide ${slide.id}`}
-                    className="object-cover h-48 w-full sm:w-auto sm:h-[191px]"
-                  />
-                  <div className="hidden sm:block w-full sm:w-1/2 text-gray-700 text-left">
-                    <p className="text-sm sm:text-md leading-normal h-16 overflow-hidden text-ellipsis">
-                      {slide.label && (
-                        <span className="text-white text-md sm:text-lg">
-                          Captured our special day beautifully, each moment
-                          immortalized with artistry. A true professional, grateful for
-                          the memories.
-                        </span>
-                      )}
-                    </p>
-                    <div className="mt-2 text-white">DAVID WARNER</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* Slider Indicators */}
-          <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                className={`w-3 h-3 rounded-full ${currentSlide === index ? "bg-yellow-500" : "bg-white"
-                  }`}
-                aria-current={currentSlide === index}
-                aria-label={`Slide ${index + 1}`}
-                onClick={() => goToSlide(index)}
-              ></button>
-            ))}
-          </div>
+  "></span>
         </div>
       </div>
 
-      {/* end */}
+      <div id="default-carousel" className="relative mt-10 mx-4 sm:mx-12 mb-4" data-carousel="static">
+        <style>
+          {
+            ` * {
+          box-sizing: border-box;
+          /* Ensures consistent layout */
+        }
 
+        /* Responsive Styling for 430px and 375px */
+        @media (max-width: 430px) {
+          .carousel-content {
+            padding-left: 10px;
+            padding-right: 10px;
+            width: 100%;
+            /* Take full width */
+            flex-direction: column;
+            /* Stack elements vertically */
+            gap: 10px;
+            /* Add spacing between items */
+          }
+
+          .carousel-img {
+            height: 180px;
+            width: 100%;
+            /* Full width image on smaller screens */
+          }
+        }
+
+        @media (max-width: 375px) {
+          .carousel-content {
+            padding-left: 8px;
+            padding-right: 8px;
+            gap: 8px;
+          }
+
+          .carousel-img {
+            height: 160px;
+          }
+        }`}
+        </style>
+        {/* Carousel wrapper */}
+        <div className="  overflow-hidden relative h-56 rounded-lg sm:h-64  xl:h-80 2xl:h-96">
+          {slides.map((slide, index) => (
+            <div key={slide.id} className={`absolute inset-0 transition-opacity duration-700 ease-in-out
+        ${index === currentSlide ? "opacity-100" : "opacity-0"}`} data-carousel-item>
+              <div className={`carousel-content box-content p-2 sm:p-6 w-full max-w-[90%] sm:max-w-[75%] mx-auto border-4
+          border-white flex items-center justify-center ${window.innerWidth < 640 ? "flex-col gap-4"
+                  : "flex-row-reverse"} bg-red`} style={{ minWidth: "375px" }}>
+                <img src={slide.image} alt={`Slide ${slide.id}`}
+                  className="object-cover h-48 w-full sm:w-auto sm:h-[191px]" />
+                <div className="hidden sm:block w-full sm:w-1/2 text-gray-700 text-left">
+                  <p className="text-sm sm:text-md leading-normal h-16 overflow-hidden text-ellipsis">
+                    {slide.label && (
+                      <span className="text-white text-md sm:text-lg">
+                        Captured our special day beautifully, each moment
+                        immortalized with artistry. A true professional, grateful for
+                        the memories.
+                      </span>
+                    )}
+                  </p>
+                  <div className="mt-2 text-white">DAVID WARNER</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* Slider Indicators */}
+        <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+          {slides.map((_, index) => (
+            <button key={index} type="button" className={`w-3 h-3 rounded-full ${currentSlide === index ? "bg-yellow-500"
+              : "bg-white"}`} aria-current={currentSlide === index} aria-label={`Slide ${index + 1}`} onClick={() =>
+                goToSlide(index)}
+            ></button>
+          ))}
+        </div>
+      </div>
+
+      {/* faq */}
       <div className="relative text-center pt-20 mb-6 ">
-        <h2 className="font-raleway text-[32px] md:text-[41.89px] font-extrabold leading-[40px] md:leading-[49.18px] text-white">
+        <h2
+          className="font-raleway text-[32px] md:text-[41.89px] font-extrabold leading-[40px] md:leading-[49.18px] text-white">
           F
           <span className="w-[100px] md:w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
             AQ
@@ -468,6 +424,7 @@ function Home() {
         </div>
       </div>
 
+      {/* glimpiss of instagram */}
       <div className="relative text-center pt-20 mb-6">
         <h2 className="font-raleway lg:text-[41.89px] font-extrabold lg:leading-[49.18px] text-white ">
           GLIMPSE{" "}
@@ -477,67 +434,60 @@ function Home() {
         </h2>
       </div>
 
-      <div className=" sm:py-12">
+
+      <div className="sm:py-12">
         {/* Center the grid container */}
-        <div className=" flex justify-center">
-          <div className="grid gap-4 lg:grid-cols-2 max-w-screen-lg">
+        <div className="flex justify-center">
+          <div className="grid gap-4 lg:grid-cols-2 max-w-screen-lg w-full px-4 md:px-0">
             {/* Large Images in the First Column */}
-            <div className="relative flex flex-col gap-4 items-center">
+            <div className="flex flex-col gap-4 items-center">
               {/* First Image with Instagram Overlay */}
               <div className="relative group">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/image 17.png"}
+                  src={`${process.env.PUBLIC_URL}/images/image 17.png`}
                   alt="Large Image 1"
-                  className="object-cover w-full h-auto sm:max-w-[652px] sm:h-[366px]"
-                  style={{ maxHeight: "366px" }} // Set a max height for the image
+                  className="object-cover w-full h-auto max-w-full sm:max-w-[652px] sm:h-[366px]"
                 />
-                {/* Instagram Logo with Link */}
-                <div
-                  className="absolute inset-0 flex justify-center items-center 
-              opacity-0 group-hover:opacity-80 transition-opacity duration-300 
-              cursor-pointer z-10"
+                {/* Instagram Overlay with Logo */}
+                <a
+                  href="https://www.instagram.com/yourInstagramHandle"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-80 transition-opacity duration-300 cursor-pointer"
                 >
-                  <a
-                    href="https://www.instagram.com/yourInstagramHandle"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                    style={{ width: "50px", height: "50px" }} // Set fixed size for the logo
-                  >
-                    <img
-                      src={logoImage}
-                      alt="Instagram Logo"
-                      className="w-full h-full object-contain" // Responsive image
-                    />
-                  </a>
-                </div>
+                  <img
+                    src={logoImage}
+                    alt="Instagram Logo"
+                    className="w-12 h-12 object-contain"
+                  />
+                </a>
               </div>
 
               {/* Second Large Image */}
               <img
-                src={process.env.PUBLIC_URL + "/images/image 5.png"}
+                src={`${process.env.PUBLIC_URL}/images/image 5.png`}
                 alt="Large Image 2"
-                className="object-cover w-full h-auto sm:max-w-[652px] sm:h-[565px]"
-                style={{ maxHeight: "565px" }} // Set a max height for the image
+                className="object-cover w-full h-auto max-w-full sm:max-w-[652px] sm:h-[565px]"
               />
             </div>
 
             {/* Small Images in the Second Column */}
-            <div className="flex flex-col gap-4 ">
+            <div className="flex flex-col gap-4">
+              {/* Small Image 1 */}
               <div className="relative">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/image 8.png"}
+                  src={`${process.env.PUBLIC_URL}/images/image 8.png`}
                   alt="Small Image 1"
-                  className="object-cover w-full h-auto sm:max-w-[442px] sm:h-[442px]"
-                  style={{ maxHeight: "442px" }} // Set a max height for the image
+                  className="object-cover w-full h-auto max-w-full sm:max-w-[442px] sm:h-[442px]"
                 />
               </div>
+
+              {/* Small Image 2 */}
               <div className="relative">
                 <img
-                  src={process.env.PUBLIC_URL + "/images/image 19.png"}
+                  src={`${process.env.PUBLIC_URL}/images/image 19.png`}
                   alt="Small Image 2"
-                  className="object-cover w-full h-auto sm:max-w-[442px] sm:h-[479px]"
-
+                  className="object-cover w-full h-auto max-w-full sm:max-w-[442px] sm:h-[479px]"
                 />
               </div>
             </div>

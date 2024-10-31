@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 
 const Header = ({ footerRef }) => {
   const [activeLink, setActiveLink] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
 
   const handleScrollToFooter = () => {
     footerRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -12,6 +13,20 @@ const Header = ({ footerRef }) => {
   };
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  // Close mobile menu on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const navLinks = [
     { name: "HOME", path: "/" },
@@ -32,9 +47,7 @@ const Header = ({ footerRef }) => {
                 className={({ isActive }) =>
                   `hover:text-gray-300 transition-all duration-300 ${isActive || activeLink === name.toLowerCase() ? "text-yellow-400 border-b-2 border-yellow-400" : ""}`
                 }
-                onClick={() => {
-                  setActiveLink(name.toLowerCase());
-                }}
+                onClick={() => setActiveLink(name.toLowerCase())}
               >
                 {name}
               </NavLink>
@@ -49,16 +62,15 @@ const Header = ({ footerRef }) => {
             </button>
           </li>
         </ul>
-
-        <div className="block lg:hidden mb-2  mt-8 mr-12">
+        <div className="lg:hidden mb-2 mt-8 mr-12 flex justify-end">
           <button onClick={toggleMobileMenu} className="focus:outline-none text-4xl">
-            <span className="text-white">
+            <span className="text-white rig">
               {isMobileMenuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 ml-[265px] -mt-[31px] md:ml-[200px] md:-mt-[20px] lg:ml-[250px] lg:-mt-[25px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 ml-[265px] -mt-[31px] md:ml-[200px] md:-mt-[20px] lg:ml-[250px] lg:-mt-[25px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
               )}
@@ -66,37 +78,42 @@ const Header = ({ footerRef }) => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        <ul className={`flex flex-col items-center justify-center gap-[3rem] transition-all duration-500 ease-in-out fixed top-12 left-56.5rem bg-black w-48 h-[440px] p-4 rounded-lg shadow-lg ${isMobileMenuOpen ? "block" : "hidden"} lg:hidden`}>
-  {navLinks.map(({ name, path }) => (
-    <li key={name}>
-      <NavLink
-        to={path}
-        className={({ isActive }) =>
-          `hover:text-gray-300 transition-all duration-300 ${isActive || activeLink === name.toLowerCase() ? "text-yellow-400 border-b-2 border-yellow-400" : ""}`
-        }
-        onClick={() => {
-          setActiveLink(name.toLowerCase()); // Corrected line
-          setIsMobileMenuOpen(false);
-        }}
-      >
-        {name}
-      </NavLink>
-    </li>
-  ))}
-  <li>
-    <button
-      onClick={() => {
-        handleScrollToFooter();
-        setIsMobileMenuOpen(false);
-      }}
-      className={`hover:text-gray-300 transition-all duration-300 ${activeLink === "contact" ? "text-yellow-400 border-b-2 border-yellow-400" : ""}`}
-    >
-      CONTACT
-    </button>
-  </li>
-</ul>
 
+
+        {/* Mobile Menu */}
+        <ul
+          ref={mobileMenuRef}
+          className={`flex flex-col items-center justify-center gap-[3rem] transition-all duration-500 ease-in-out fixed top-12 right-0 bg-black w-48 h-[440px] p-4 rounded-lg shadow-lg ${isMobileMenuOpen ? "block" : "hidden"
+            } lg:hidden`}
+        >
+          {navLinks.map(({ name, path }) => (
+            <li key={name}>
+              <NavLink
+                to={path}
+                className={({ isActive }) =>
+                  `hover:text-gray-300 transition-all duration-300 ${isActive || activeLink === name.toLowerCase() ? "text-yellow-400 border-b-2 border-yellow-400" : ""}`
+                }
+                onClick={() => {
+                  setActiveLink(name.toLowerCase());
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                {name}
+              </NavLink>
+            </li>
+          ))}
+          <li>
+            <button
+              onClick={() => {
+                handleScrollToFooter();
+                setIsMobileMenuOpen(false);
+              }}
+              className={`hover:text-gray-300 transition-all duration-300 ${activeLink === "contact" ? "text-yellow-400 border-b-2 border-yellow-400" : ""}`}
+            >
+              CONTACT
+            </button>
+          </li>
+        </ul>
       </nav>
     </header>
   );
