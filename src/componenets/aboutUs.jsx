@@ -1,10 +1,18 @@
-import React from "react";
+import React,{useEffect,useRef} from "react";
 import teamPhoto from "../assests/teamphoto.png";
 import teamphoto1 from "../assests/teamphoto1.png";
 import teamphoto2 from "../assests/teamphoto2.png";
 import teamPhoto3 from "../assests/teamphoto3.png";
 
 function AboutUs() {
+  const teamSectionRef = useRef(null);
+
+  // Scroll to the initial position on component mount
+  useEffect(() => {
+    if (teamSectionRef.current) {
+      teamSectionRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    }
+  }, []);
   return (
     <div className="px-4 md:px-8 lg:px-16 py-12 pb-0"> {/* Reduced bottom padding */}
       {/* Title and Line */}
@@ -87,7 +95,8 @@ function AboutUs() {
       </div>
 
       {/* Team Members */}
-      <div className="overflow-x-auto whitespace-nowrap scroll-smooth">
+            {/* Team Members */}
+            <div ref={teamSectionRef} className="overflow-x-auto whitespace-nowrap scroll-smooth">
         <div
           className="flex justify-center gap-[11.5rem]"
           style={{

@@ -3,11 +3,14 @@ import "./home.css";
 import logoImage from "../assests/Vector.png";
 import { useNavigate } from "react-router-dom";
 
+import { FaPlus, FaTimes } from "react-icons/fa";
 
 function Home() {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [seeAll, setSeeAll] = useState(false);
+  const [expanded, setExpanded] = useState(null);
 
   const images = [
     `${process.env.PUBLIC_URL}/images/image 19.png`,
@@ -25,7 +28,23 @@ function Home() {
     );
   };
 
-  // Array of image slides
+
+  // Function to toggle FAQ answers
+  const toggleQuestion = (index) => {
+    // If already expanded, close it, otherwise expand
+    if (expanded === index) {
+      setExpanded(null); // Collapse
+    } else {
+      setExpanded(index); // Expand
+    }
+  };
+
+  // Function to toggle See All / See Less
+  const toggleSeeAll = () => {
+    setSeeAll(!seeAll); // Toggle between true and false
+  };
+
+
   const slides = [
     {
       id: 1,
@@ -51,6 +70,43 @@ function Home() {
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
+
+  const faqs = [
+    {
+      question: "Can You Capture Our Wedding Day From Start to Finish?",
+      answer: "Absolutely! We provide comprehensive coverage of your wedding day, capturing every moment from preparations to the reception."
+    },
+    {
+      question: "Do You Offer Engagement Photo Sessions?",
+      answer: "Yes, we offer engagement sessions that allow you to capture beautiful moments before your wedding, providing a great way to get comfortable in front of the camera."
+    },
+    {
+      question: "How Do You Handle Different Lighting Conditions During The Wedding?",
+      answer: "We are experienced in working with various lighting conditions, including natural light and indoor venues, ensuring that every photo looks stunning regardless of the environment."
+    },
+    {
+      question: "Can We Customize Our Wedding Photography Package?",
+      answer: "Definitely! We offer customizable packages to fit your specific needs, including options for hours of coverage, number of photographers, and additional services."
+    },
+    {
+      question: "How Many Photos Will We Receive From Our Wedding?",
+      answer: "The number of photos varies by package, but you can expect to receive hundreds of beautifully edited images that capture the essence of your day."
+    },
+    {
+      question: "When Will We Receive Our Wedding Photos?",
+      answer: "Typically, you will receive your edited wedding photos within 4-6 weeks after your wedding day, depending on the season and our current schedule."
+    },
+    {
+      question: "Do You Provide Wedding Albums?",
+      answer: "Yes, we offer high-quality wedding albums that beautifully showcase your favorite images from the day, designed to last a lifetime."
+    },
+    {
+      question: "Can You Help Us With A Wedding Photography Timeline?",
+      answer: "Absolutely! We can assist in creating a photography timeline that ensures we capture all the key moments of your wedding day."
+    },
+  ];
+
+
   return (
     <div>
       <div className="relative w-full h-screen flex hero object-cover object-center p-4">
@@ -63,18 +119,10 @@ function Home() {
               style={{ lineHeight: "1.2", fontFamily: "Arial, sans-serif" }}
             >
               SOM
-
-              {/* <div className="inline-block sm:w-[200px] md:w-[400px] lg:w-[200px] border-b-4 border-[#FCFC04]"> */}
-
               <span className="inline-block mx-2">
                 SHARMA
               </span>
-              {/* </div> */}
-
-
             </h1>
-
-            {/* <div className="w-[100px] sm:w-[159px] border-t-2 border-[#FCFC04] my-4"></div> */}
 
             <p
               className="text-white text-xs sm:text-sm font-medium"
@@ -97,8 +145,7 @@ function Home() {
       </div>
 
 
-      <div className="text-white py-4">
-
+      <div className="text-white py-4 mt-10">
         <div className="relative text-center mb-8">
           <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px]">
             PORT
@@ -194,8 +241,8 @@ function Home() {
 
 
         {/* service */}
-        <div className="relative text-center mt-8">
-          <h2 className="font-raleway text-[41.89px] font-extrabold leading-[49.18px] text-white">
+        <div className="relative text-center pt-6">
+          <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px]">
             SER
             <span className="w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
               VICE
@@ -296,7 +343,7 @@ function Home() {
 
         {/* testimonial */}
         <div className="relative text-center py-10">
-          <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px] text-white mt-12 mb-0">
+          <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px]">
             TESTIMONIAL
           </h2>
           <span className="
@@ -308,56 +355,29 @@ function Home() {
       </div>
 
       <div id="default-carousel" className="relative mt-10 mx-4 sm:mx-12 mb-4" data-carousel="static">
-        <style>
-          {
-            ` * {
-          box-sizing: border-box;
-          /* Ensures consistent layout */
-        }
 
-        /* Responsive Styling for 430px and 375px */
-        @media (max-width: 430px) {
-          .carousel-content {
-            padding-left: 10px;
-            padding-right: 10px;
-            width: 100%;
-            /* Take full width */
-            flex-direction: column;
-            /* Stack elements vertically */
-            gap: 10px;
-            /* Add spacing between items */
-          }
-
-          .carousel-img {
-            height: 180px;
-            width: 100%;
-            /* Full width image on smaller screens */
-          }
-        }
-
-        @media (max-width: 375px) {
-          .carousel-content {
-            padding-left: 8px;
-            padding-right: 8px;
-            gap: 8px;
-          }
-
-          .carousel-img {
-            height: 160px;
-          }
-        }`}
-        </style>
         {/* Carousel wrapper */}
-        <div className="  overflow-hidden relative h-56 rounded-lg sm:h-64  xl:h-80 2xl:h-96">
+        <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
           {slides.map((slide, index) => (
-            <div key={slide.id} className={`absolute inset-0 transition-opacity duration-700 ease-in-out
-        ${index === currentSlide ? "opacity-100" : "opacity-0"}`} data-carousel-item>
-              <div className={`carousel-content box-content p-2 sm:p-6 w-full max-w-[90%] sm:max-w-[75%] mx-auto border-4
-          border-white flex items-center justify-center ${window.innerWidth < 640 ? "flex-col gap-4"
-                  : "flex-row-reverse"} bg-red`} style={{ minWidth: "375px" }}>
-                <img src={slide.image} alt={`Slide ${slide.id}`}
-                  className="object-cover h-48 w-full sm:w-auto sm:h-[191px]" />
-                <div className="hidden sm:block w-full sm:w-1/2 text-gray-700 text-left">
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"
+                }`}
+              data-carousel-item
+            >
+              <div
+                className="bg-red-600 carousel-content box-content p-2 sm:p-6 w-full max-w-[90%] sm:max-w-[75%] mx-auto border-4 border-white flex flex-col sm:flex-row-reverse gap-4 items-center justify-center"
+                style={{ minWidth: "375px" }}
+              >
+                {/* Slide Image */}
+                <img
+                  src={slide.image}
+                  alt={`Slide ${slide.id}`}
+                  className="object-cover h-48 w-full sm:w-auto sm:h-[191px]"
+                />
+
+                {/* Slide Description */}
+                <div className="w-full sm:w-1/2 text-gray-700 text-left">
                   <p className="text-sm sm:text-md leading-normal h-16 overflow-hidden text-ellipsis">
                     {slide.label && (
                       <span className="text-white text-md sm:text-lg">
@@ -373,6 +393,7 @@ function Home() {
             </div>
           ))}
         </div>
+
         {/* Slider Indicators */}
         <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
           {slides.map((_, index) => (
@@ -387,7 +408,7 @@ function Home() {
       {/* faq */}
       <div className="relative text-center pt-20 mb-6 ">
         <h2
-          className="font-raleway text-[32px] md:text-[41.89px] font-extrabold leading-[40px] md:leading-[49.18px] text-white">
+          className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px]">
           F
           <span className="w-[100px] md:w-[159px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
             AQ
@@ -395,38 +416,56 @@ function Home() {
         </h2>
       </div>
 
-      <div className="pt-10 space-y-[20px] w-full flex flex-col items-center ">
-        <div className="flex justify-between w-[80%] box-border p-4 border-2 items-center rounded-lg text-white">
-          <div>Understanding of wedding photography</div>
-          <div>+</div>
-        </div>
+      <div className="max-w-6xl mx-auto pt-10 px-4">
+        {faqs.slice(0, seeAll ? faqs.length : 4).map((faq, index) => (
+          <div key={index} className="border border-gray-600 mb-4 rounded-md overflow-hidden">
+            <div
+              className="flex justify-between items-center cursor-pointer p-4"
+              onClick={() => toggleQuestion(index)}
+            >
+              <h3 className="text-lg font-semibold">{faq.question}</h3>
+              {/* Icon with rotation transition */}
+              <div
+                className={`transform transition-transform duration-300 ${expanded === index ? "rotate-45" : "rotate-0"
+                  }`}
+              >
+                {expanded === index ? (
+                  <FaTimes className="text-white" />
+                ) : (
+                  <FaPlus className="text-white" />
+                )}
+              </div>
+            </div>
 
-        <div className="flex justify-between w-[80%]  box-border p-4 border-2 items-center rounded-lg text-white">
-          <div>Planning &amp; management of wedding shoots</div>
-          <div>+</div>
-        </div>
-
-        <div className="flex justify-between w-[80%]  box-border p-4 border-2 items-center rounded-lg text-white">
-          <div>
-            How to anticipate and plan to capture great moments at weddings
+            {/* Collapsible answer with transition */}
+            <div
+              className={`transition-all duration-500 ease-in-out overflow-hidden ${expanded === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                }`}
+            >
+              <hr className="border-t border-gray-600 mx-4" />
+              <div className="px-4 pb-4 pt-2 text-gray-400 text-base leading-relaxed text-left">
+                <p>{faq.answer}</p>
+              </div>
+            </div>
           </div>
-          <div>+</div>
-        </div>
+        ))}
 
-        <div className="flex justify-between w-[80%]  box-border p-4 border-2 items-center rounded-lg text-white">
-          <div>Wedding tool kit for a wedding photographer</div>
-          <div>+</div>
-        </div>
-
-        <div className="flex justify-between w-[80%]  box-border p-4 border-2 items-center rounded-lg text-white">
-          <div>How to create great wedding photos</div>
-          <div>+</div>
+        {/* See All / See Less Button */}
+        <div className="flex justify-center mt-6">
+          {/* Button to toggle between See All and See Less with smooth transition */}
+          <button
+            onClick={toggleSeeAll}
+            className="w-full max-w-xs lg:max-w-[233px] lg:h-[74px] border border-[#FCFC04] text-center text-lg font-semibold text-[#FCFC04] bg-transparent hover:bg-[#FCFC04] hover:text-black transition-colors my-4"
+          >
+            {seeAll ? "See Less" : "View All"}
+          </button>
         </div>
       </div>
 
+
       {/* glimpiss of instagram */}
       <div className="relative text-center pt-20 mb-6">
-        <h2 className="font-raleway lg:text-[41.89px] font-extrabold lg:leading-[49.18px] text-white ">
+        <h2 className="font-raleway md:text-[41.89px] font-extrabold md:leading-[49.18px] ">
           GLIMPSE{" "}
           <span className="w-[235px] mx-auto mt-2 border-b-2 border-[#FCFC04]">
             OF INSTAGRAM
@@ -434,8 +473,8 @@ function Home() {
         </h2>
       </div>
 
-      <div className="flex justify-center px-4 md:px-0">
-        <div className="grid gap-4 grid-cols-2 max-w-screen-lg w-full items-stretch">
+      <div className="pt-10 flex justify-center px-4 md:px-0">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 max-w-screen-lg w-full items-stretch">
           <div className="flex flex-col gap-4 items-center">
             <div className="relative group w-full h-[366px]">
               <img
