@@ -1,6 +1,8 @@
 import React, { forwardRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom"; // Import useLocation to get current path
 import image from "../assests/ccc128.jpg"; // Adjust the path if needed
+import './Footer.css'
+
 
 const Footer = forwardRef((props, ref) => {
   const navigate = useNavigate(); // Hook to navigate
@@ -45,15 +47,13 @@ const Footer = forwardRef((props, ref) => {
       </div>
 
       {/* Footer Content */}
-      <div className="relative z-10 container mx-auto p-4 flex flex-col md:flex-row  items-center text-center md:text-left">
+      <div className="relative z-10 w-ful mx-auto p-4 flex flex-col md:flex-row  items-center text-center md:text-left">
         {/* Left Section */}
         <div className=" w-full md:w-auto  flex-auto">
-          <h1 className="font-bold text-5xl leading-[52px] tracking-[0.17em]">
-            RISHABH SHARMA
+          <h1 className="font-bold text-5xl leading-[52px] tracking-[0.17em] footerName">
+            RISHABH SHARMA <br/> PHOTOGRAPHY
           </h1>
-          <h2 className="font-bold text-4xl md:text-5xl leading-[52px] tracking-[0.17em] mb-4">
-            PHOTOGRAPHY
-          </h2>
+    
           <p className="text-lg mt-8 tracking-[0.05em] opacity-100">
             All Images and Videos Are Copyrighted.
           </p>
@@ -81,13 +81,13 @@ const Footer = forwardRef((props, ref) => {
 
       {/* Centered Yellow Line */}
       <div className="relative z-20 flex justify-center mt-4">
-        <div className="border-t-2 border-yellow-400 w-[1218px] mt-2 mx-auto md:mx-0 md:mr-8"></div>
+        <div className="border-t-2 border-yellow-400 w-[1218px] mt-2 mx-auto md:mx-0"></div>
       </div>
 
       {/* Buttons Layout Below the Yellow Line */}
-      <div className="relative z-10 container mx-auto p-4 flex flex-col sm:flex-row justify-between mt-4">
+      <div className="relative z-10 w-full mx-auto p-4 flex flex-col sm:flex-row justify-between mt-4">
         {/* Call and Email Buttons */}
-        <div className="flex space-x-4 ml-0 sm:ml-32 mb-4 sm:mb-0 justify-center sm:justify-start">
+        <div className="flex space-x-4 ml-0 mb-4 sm:mb-0 justify-center sm:justify-start">
           <a href="tel:+1234567890">
             <button className="border border-yellow-400 text-white hover:bg-yellow-500 hover:text-black transition-colors duration-300 w-36 h-11">
               Call
@@ -104,26 +104,22 @@ const Footer = forwardRef((props, ref) => {
           </a>
         </div>
 
-        {/* Social Media Buttons */}
-        <div className="flex space-x-4 mr-0 sm:mr-40 justify-center sm:justify-start">
-          <a
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="border border-yellow-400 text-white hover:bg-yellow-500 hover:text-black transition-colors duration-300 w-36 h-11">
-              Facebook
-            </button>
-          </a>
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="border border-yellow-400 text-white hover:bg-yellow-500 hover:text-black transition-colors duration-300 w-36 h-11">
-              Instagram
-            </button>
-          </a>
+        
+        <div className="flex space-x-4 mr-0 justify-center sm:justify-start">
+        <a href="tel:+1234567890">
+        <button className="border border-yellow-400 text-white hover:bg-yellow-500 hover:text-black transition-colors duration-300 w-36 h-11">
+          Call
+        </button>
+      </a>
+      <a
+        href="https://www.mail.com/login/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <button className="border border-yellow-400 text-white hover:bg-yellow-500 hover:text-black transition-colors duration-300 w-36 h-11">
+          Email
+        </button>
+      </a>
         </div>
       </div>
     </footer>

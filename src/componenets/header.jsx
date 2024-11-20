@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
-
+import './Header.css'
 const Header = ({ footerRef }) => {
   const [activeLink, setActiveLink] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -33,89 +33,102 @@ const Header = ({ footerRef }) => {
     { name: "PORTFOLIO", path: "/portfolio" },
     { name: "SERVICE", path: "/service" },
     { name: "ABOUT US", path: "/about-us" },
+    { name: "CONTACT US", path: "/about-us" },
+
   ];
 
   return (
-    <header className="absolute top-0 left-0 right-0 bg-transparent text-white py-4 z-50">
-      <nav className="container mx-auto px-6 lg:px-8 flex items-center justify-between">
-        {/* Desktop Navbar Links */}
-        <ul className="hidden lg:flex flex-row items-center gap-4 lg:gap-[12rem] mx-auto">
+    
+    <header className="fixed top-0 left-0 w-full z-50 bg-transparent text-white">
+      <nav className="w-full mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
+        {/* Brand/Logo */}
+      
+
+        {/* Desktop Menu */}
+        <ul className="w-full navbarMenuList hidden md:flex space-x-8">
           {navLinks.map(({ name, path }) => (
             <li key={name}>
               <NavLink
                 to={path}
                 className={({ isActive }) =>
-                  `hover:text-gray-300 transition-all duration-300 ${isActive || activeLink === name.toLowerCase() ? "text-yellow-400 border-b-2 border-yellow-400" : ""}`
+                  `transition-all duration-300 ${
+                    isActive ? "text-yellow-400 border-b-2 border-yellow-400" : ""
+                  } hover:text-gray-300`
                 }
-                onClick={() => setActiveLink(name.toLowerCase())}
               >
                 {name}
               </NavLink>
             </li>
           ))}
-          <li>
-            <button
-              onClick={handleScrollToFooter}
-              className={`hover:text-gray-300 transition-all duration-300 ${activeLink === "contact" ? "text-yellow-400 border-b-2 border-yellow-400" : ""}`}
-            >
-              CONTACT
-            </button>
-          </li>
         </ul>
-        <div className="lg:hidden mb-2 mt-8 mr-12 flex justify-end">
-          <button onClick={toggleMobileMenu} className="focus:outline-none text-4xl">
-            <span className="text-white rig">
-              {isMobileMenuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 ml-[265px] -mt-[31px] md:ml-[200px] md:-mt-[20px] lg:ml-[250px] lg:-mt-[25px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 ml-[265px] -mt-[31px] md:ml-[200px] md:-mt-[20px] lg:ml-[250px] lg:-mt-[25px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-              )}
-            </span>
-          </button>
-        </div>
 
-
+        {/* Hamburger Menu Button */}
+        <button
+          className="block md:hidden text-3xl focus:outline-none hamburgeBtn"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          )}
+        </button>
 
         {/* Mobile Menu */}
-        <ul
-          ref={mobileMenuRef}
-          className={`flex flex-col items-center justify-center gap-[3rem] transition-all duration-500 ease-in-out fixed top-12 right-0 bg-black w-48 h-[440px] p-4 rounded-lg shadow-lg ${isMobileMenuOpen ? "block" : "hidden"
-            } lg:hidden`}
+        <div
+          className={`${
+            isMobileMenuOpen ? "block" : "hidden"
+          } navbarMobileMenu absolute top-16 right-6 bg-black bg-opacity-90 rounded-lg shadow-lg p-6 w-48 md:hidden`}
         >
-          {navLinks.map(({ name, path }) => (
-            <li key={name}>
-              <NavLink
-                to={path}
-                className={({ isActive }) =>
-                  `hover:text-gray-300 transition-all duration-300 ${isActive || activeLink === name.toLowerCase() ? "text-yellow-400 border-b-2 border-yellow-400" : ""}`
-                }
-                onClick={() => {
-                  setActiveLink(name.toLowerCase());
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                {name}
-              </NavLink>
-            </li>
-          ))}
-          <li>
-            <button
-              onClick={() => {
-                handleScrollToFooter();
-                setIsMobileMenuOpen(false);
-              }}
-              className={`hover:text-gray-300 transition-all duration-300 ${activeLink === "contact" ? "text-yellow-400 border-b-2 border-yellow-400" : ""}`}
-            >
-              CONTACT
-            </button>
-          </li>
-        </ul>
+          <ul className="flex flex-col space-y-4">
+            {navLinks.map(({ name, path }) => (
+              <li key={name}>
+                <NavLink
+                  to={path}
+                  className={({ isActive }) =>
+                    `transition-all duration-300 ${
+                      isActive
+                        ? "text-yellow-400 border-b-2 border-yellow-400"
+                        : ""
+                    } hover:text-gray-300`
+                  }
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </header>
+
   );
 };
 
