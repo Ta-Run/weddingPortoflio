@@ -1,4 +1,4 @@
-import React,{useEffect,useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import teamPhoto from "../assests/teamphoto.png";
 import teamphoto1 from "../assests/teamphoto1.png";
 import teamphoto2 from "../assests/teamphoto2.png";
@@ -32,22 +32,37 @@ function AboutUs() {
 
       {/* Grid for Text and Image */}
       <div className="grid lg:grid-cols-2 gap-x-8 gap-4 pt-8 lg:pt-16 items-center">
+
+
+        {/* Image Section */}
+        <div className="flex justify-center lg:justify-end">
+          <img
+            src={
+              process.env.PUBLIC_URL +
+              "/images/wedding-photography-by-joseph-radhik-joseph-desktop 1.png"
+            }
+            alt="Photographer"
+            className="w-[100%] lg:w-[100%] h-auto object-cover ml-[-9px]"
+          />
+        </div>
+
+
         {/* Text Section */}
         <div className="text-base md:text-lg leading-relaxed md:leading-relaxed">
-          <p>
-            Hello there! I'm [Your Name], a wedding photographer with a passion
-            for freezing moments and turning them into timeless memories. What
-            sets me apart? It's not just the click of a camera; it's the genuine
-            connection I build with each couple. My friendly nature allows me to
-            seamlessly adapt to any atmosphere, making even the most camera-shy
-            feel at ease. I believe in capturing not just the poses, but the
-            emotions and stories that unfold on your special day. From candid
-            laughter to those heartfelt glances, I aim to encapsulate the
-            essence of your love. Let's embark on this photographic journey
-            together, where every frame tells a unique tale. I'm not just your
-            photographer; I'm a storyteller weaving your love story through the
-            lens. Excited to be a part of your journey!
-          </p>
+
+          Hello there! I'm  Som Sharma, a wedding photographer with a passion
+          for freezing moments and turning them into timeless memories. What
+          sets me apart? It's not just the click of a camera; it's the genuine
+          connection I build with each couple. My friendly nature allows me to
+          seamlessly adapt to any atmosphere, making even the most camera-shy
+          feel at ease. I believe in capturing not just the poses, but the
+          emotions and stories that unfold on your special day. From candid
+          laughter to those heartfelt glances, I aim to encapsulate the
+          essence of your love. Let's embark on this photographic journey
+          together, where every frame tells a unique tale. I'm not just your
+          photographer; I'm a storyteller weaving your love story through the
+          lens. Excited to be a part of your journey!
+
           <span className="block mt-4 text-lg font-semibold">SOM SHARMA</span>
           <span className="block text-sm font-light">
             FOUNDER & HEAD PHOTOGRAPHER
@@ -66,17 +81,7 @@ function AboutUs() {
           </div>
         </div>
 
-        {/* Image Section */}
-        <div className="flex justify-center lg:justify-end">
-          <img
-            src={
-              process.env.PUBLIC_URL +
-              "/images/wedding-photography-by-joseph-radhik-joseph-desktop 1.png"
-            }
-            alt="Photographer"
-            className="w-[100%] lg:w-[100%] h-auto object-cover ml-[-9px]"
-          />
-        </div>
+
       </div>
 
       {/* Team Section Title */}
@@ -95,15 +100,10 @@ function AboutUs() {
       </div>
 
       {/* Team Members */}
-            {/* Team Members */}
-            <div ref={teamSectionRef} className="overflow-x-auto whitespace-nowrap scroll-smooth">
+      {/* Team Members */}
+      <div ref={teamSectionRef} className="overflow-x-auto whitespace-nowrap scroll-smooth">
         <div
-          className="flex justify-center gap-[11.5rem]"
-          style={{
-            minWidth: "800px",
-            paddingLeft: "81.25rem",
-            paddingRight: "81.25rem",
-          }}
+          className="flex justify-center gap-[2rem] px-4 sm:px-8 md:px-16 lg:px-20"
         >
           {/* Team Member 1 */}
           <div className="flex-shrink-0 flex flex-col items-center">
@@ -156,26 +156,63 @@ function AboutUs() {
               <div className="text-white mt-1">Hair & MUA</div>
             </div>
           </div>
+          {/* Team Member 4 */}
+          <div className="flex-shrink-0 flex flex-col items-center">
+            <img
+              src={teamphoto1}
+              alt="Team Photo 4"
+              className="w-[200px] h-[230px] object-cover border-none"
+            />
+            <div className="text-left mt-2 w-full">
+              <div className="font-semibold text-white">SOM SHARMA</div>
+              <div className="text-white mt-1">Hair & MUA</div>
+            </div>
+          </div>
+          {/* Team Member 4 */}
+          <div className="flex-shrink-0 flex flex-col items-center">
+            <img
+              src={teamphoto1}
+              alt="Team Photo 4"
+              className="w-[200px] h-[230px] object-cover border-none"
+            />
+            <div className="text-left mt-2 w-full">
+              <div className="font-semibold text-white">SOM SHARMA</div>
+              <div className="text-white mt-1">Hair & MUA</div>
+            </div>
+          </div>
+          {/* Team Member 4 */}
+          <div className="flex-shrink-0 flex flex-col items-center">
+            <img
+              src={teamphoto1}
+              alt="Team Photo 4"
+              className="w-[200px] h-[230px] object-cover border-none"
+            />
+            <div className="text-left mt-2 w-full">
+              <div className="font-semibold text-white">SOM SHARMA</div>
+              <div className="text-white mt-1">Hair & MUA</div>
+            </div>
+          </div>
         </div>
-
-        {/* CSS to Hide Scrollbar */}
-        <style>
-          {`
-            .overflow-x-auto {
-              overflow-x: auto;
-              scrollbar-width: none;
-            }
-            .overflow-x-auto::-webkit-scrollbar {
-              display: none;
-            }
-            @media (min-width: 768px) {
-              .scroll-smooth {
-                scroll-behavior: smooth;
-              }
-            }
-          `}
-        </style>
       </div>
+
+      {/* CSS to Hide Scrollbar */}
+      <style>
+        {`
+    .overflow-x-auto {
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .overflow-x-auto::-webkit-scrollbar {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .scroll-smooth {
+        scroll-behavior: smooth;
+      }
+    }
+  `}
+      </style>
+
     </div>
   );
 }

@@ -383,7 +383,7 @@ function Home() {
               data-carousel-item
             >
               <div
-                className="bg-red-600 carousel-content box-content p-2 sm:p-6 w-full max-w-[90%] sm:max-w-[75%] mx-auto border-4 border-white flex flex-col sm:flex-row-reverse gap-4 items-center justify-center"
+                className="carousel-content box-content p-2 sm:p-6 w-full max-w-[90%] sm:max-w-[75%] mx-auto border-4 border-white flex flex-col sm:flex-row-reverse gap-4 items-center justify-center"
                 style={{ minWidth: "375px" }}
               >
                 {/* Slide Image */}
@@ -484,7 +484,7 @@ function Home() {
           {/* Button to toggle between See All and See Less with smooth transition */}
           <button
             onClick={toggleSeeAll}
-            className="w-full max-w-xs lg:max-w-[233px] lg:h-[74px] border border-[#FCFC04] text-center text-lg font-semibold text-[#FCFC04] bg-transparent hover:bg-[#FCFC04] hover:text-black transition-colors my-4"
+            className="w-[98px] lg:w-[233px] lg:h-[74px] border border-[#FCFC04] text-center text-lg font-semibold text-[#FCFC04] bg-transparent hover:bg-[#FCFC04] hover:text-black transition-colors"
           >
             {seeAll ? "See Less" : "View All"}
           </button>
